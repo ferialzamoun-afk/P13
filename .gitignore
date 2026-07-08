@@ -11,10 +11,15 @@ __pycache__/
 *.tmp
 *.log
 
-# Partie_1 - Raw data and scripts (only processed outputs in repo)
+# Partie_1 - Keep source code/docs/notebooks, ignore raw/local artifacts
 Partie_1/P6_ameliore_IA/data/
-Partie_1/P6_ameliore_IA/scripts/
-Partie_1/P6_ameliore_IA/src/
 Partie_1/P6_ameliore_IA/backups/
 Partie_1/P6_ameliore_IA/CHEMIN_DEBUG.md
+
+# Partie_1 - Keep only showcase outputs referenced in README structure
+Partie_1/P6_ameliore_IA/output/*
+!Partie_1/P6_ameliore_IA/output/dataviz/
+!Partie_1/P6_ameliore_IA/output/dataviz/**
+!Partie_1/P6_ameliore_IA/output/captures/
+!Partie_1/P6_ameliore_IA/output/captures/**
 
