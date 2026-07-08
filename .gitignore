@@ -10,3 +10,10 @@ __pycache__/
 # Local outputs and temporary files
 *.tmp
 *.log
+
+# Partie 1 - Raw data and scripts (only processed outputs in repo)
+Partie\ 1/P6_ameliore_IA/data/
+Partie\ 1/P6_ameliore_IA/scripts/
+Partie\ 1/P6_ameliore_IA/src/
+Partie\ 1/P6_ameliore_IA/backups/
+
