@@ -1,0 +1,11 @@
+# P13 - dependances minimales pour le notebook refactore et les scripts src/
+
+pandas>=2.2,<3.0
+numpy>=1.26,<3.0
+openpyxl>=3.1,<4.0
+plotly>=5.20,<7.0
+ipykernel>=6.29,<7.0
+nbformat>=5.10,<6.0
+
+# Optionnel : generation de rapports Word si conservee dans les livrables finaux
+python-docx>=1.1,<2.0
