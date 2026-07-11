@@ -1,0 +1,8 @@
+﻿Projet;BC01;BC02;BC03;BC04;BC05;Score;Pourquoi ?;Column1;_1
+P6 (Bottleneck);✅✅✅;✅✅✅;✅✅✅;✅✅✅;✅✅;1;Nettoyage; KPI; Data Contracts (qualité des données ++++)
+P8 (OC vs INSEE);✅✅✅;✅✅✅;✅✅;✅✅✅;✅✅;1;Pipeline dbt + Snowflake + CI/CD (ingénierie data ++++);;
+P9 (Lapage);✅✅;✅✅✅;✅✅✅;✅✅✅;✅✅;1;Dashboard Streamlit + KPI business (visualisation ++++);;
+P10 (Dashboard Eau);✅✅✅;✅✅✅;✅✅✅;✅✅✅;⚠️;0,8;Power BI + PESTEL (BC05 partiel : pas de ML);;
+P11 (Étude Marché);✅✅✅;✅✅✅;✅✅✅;✅✅✅;✅✅✅;1;Clustering + ACP + Feature Engineering (BC05 très fort);;
+P12 (Faux Billets);❌;✅✅✅;✅✅✅;✅✅✅;✅✅✅;0,8;ML + Classification (BC01 manquant : pas de base SQL);;
+SANITORAL;❌;✅✅;✅✅✅;✅✅✅;⚠️;0,6;Dashboard Power BI (BC01 et BC05 faibles);;

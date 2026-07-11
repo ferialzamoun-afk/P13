@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../MON-PORTFOLIO-DATA"
+		}
+	],
+	"settings": {
+		"workbench.editor.labelFormat": "medium"
+	}
+}

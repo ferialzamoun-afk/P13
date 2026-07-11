@@ -90,3 +90,39 @@ Cette matrice permet de suivre la preparation du portfolio, la qualite des preuv
 | 3 | Creer ou harmoniser le README principal du portfolio. | README portfolio | [ ] |
 | 4 | Ajouter une capture ou preuve visuelle pour chaque projet prioritaire. | Assets/captures | [ ] |
 | 5 | Verifier les liens GitHub et chemins relatifs. | Portfolio publiable | [ ] |
+
+## 7. Grille de validation Mission 2 (format jury)
+
+### 7.1 Exigences obligatoires (go/no-go)
+
+| Critere obligatoire | Preuve attendue | Statut |
+|---|---|---|
+| Portfolio professionnel publie sur GitHub | README principal clair + structure stable | [ ] |
+| Selection hierarchisee de preuves | 3 niveaux explicitement documentes (phare, fort, parcours) | [ ] |
+| Competences reliees aux projets | Matrice competences x projets completee | [ ] |
+| Veille metier/tech integree | Decisions outillees par veille dans README projets phares | [ ] |
+| Liens publics verifies | Dashboards, depots, livrables accessibles | [ ] |
+| Lisibilite non technique | Resume metier + resultat chiffre par projet phare | [ ] |
+
+### 7.2 Seuil minimum de depot (MVP soutenance)
+
+| Bloc | Minimum attendu pour depot | Statut |
+|---|---|---|
+| README principal portfolio | Profil, objectifs, top projets, contacts, liens | [ ] |
+| Projets phares | 3 projets complets dont P6 Bottleneck | [ ] |
+| Resultats quantifies | >= 1 KPI chiffre par projet phare | [ ] |
+| Captures / preuves visuelles | >= 1 preuve visuelle par projet phare | [ ] |
+| Veille integree | >= 1 choix techno justifie par projet phare | [ ] |
+| Hygiene GitHub | Aucun lien mort critique, fichiers sensibles exclus | [ ] |
+
+Regle simple de validation : depot autorise seulement si tous les criteres obligatoires sont coches et au moins 5/6 blocs MVP sont coches.
+
+## 8. Checklist finale avant envoi plateforme
+
+| Verification finale | Action de controle | Statut |
+|---|---|---|
+| Lecture 5 minutes | Un evaluateur comprend le portfolio sans contexte oral | [ ] |
+| Coherence P13 | Alignement explicite entre Partie 1 et Partie 2 | [ ] |
+| Preuves executables | Notebooks/dashboards ouvrables ou demo publique | [ ] |
+| Trajectoire pro claire | Positionnement metier + competences cibles visibles | [ ] |
+| Dossier propre | Pas de brouillons internes ni donnees sensibles exposees | [ ] |
