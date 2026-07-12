@@ -11,7 +11,7 @@ A l'issue de ce dernier projet, vous presenterez les livrables de la mission a u
 
 | Dossier | Role |
 |---|---|
-| `Partie 1/P6_initial/` | Conservation du projet P6 de depart : donnees, notebook initial et extraits de validation. |
+| `Partie 1/P6_initial/` | lien github :  |
 | `Partie 1/P6_ameliore_IA/` | Version de travail pour l'amelioration IA : documentation, audit, checklist, notebook ameliore et preuves. |
 | `Partie 2/Realiser un portfolio/` | Preparation du portfolio final et structuration des preuves de competences. |
 
