@@ -10,12 +10,15 @@
 
 ### Notebook principal : `bottleneck_analyse_ameliore_final.ipynb`
 - [x] Renommé correctement (final, pas refactored)
-- [x] **49 cells** (47 originales + 2 nouvelles P13)
-  - [x] Cell 2bis : "Méthodologie & Traçabilité des choix" (8 paragraphes)
-  - [x] Cell 46bis : "Audit & Reproductibilité" (10 sections)
-- [x] Exécution complète sans erreur blocking (~1-2 min)
-- [x] Tous les checkpoints valident ✅ (M00, Phase I, Phase II, Final)
-- [x] Pas de chemins absolus nominatifs (chemins relatifs `../../../P6_initial/data/`)
+- [x] **50 cells** (47 originales + 2 nouvelles P13 + 1 checkpoint final)
+  - [x] Cell 2bis : "Méthodologie & Traçabilité des choix" (8 paragraphes) - ✅ Exécuté
+  - [x] Cell 46bis : "Audit & Reproductibilité" (10 sections) - ✅ Exécuté
+- [x] Exécution complète VALIDÉE (~40 cells, ~2-3 min réelle)
+  - [x] Phase I : Chargement + Contrôles qualité (18 points) ✅
+  - [x] Phase II : Rapprochement ERP/Web/Liaison (714 matches) ✅
+  - [x] Phase III : EDA + KPI (CA 143.7k EUR, 689 produits vendus) ✅
+  - [x] Phase IV : Audit final + Checkpoint ✅
+- [x] Tous les chemins relatifs valides (`../../../P6_initial/data/`)
 - [x] Pas de credentials/secrets embarqués
 - [x] **Cell 2bis justifie** : Pandas vs GE vs Soda (comparaison P13)
 - [x] **Cell 46bis satisfait** les 10 critères mission P13 (tableau final)
@@ -33,16 +36,11 @@
 
 ## 📋 Checklist documentation - 8 fichiers requis pour P13
 
-| # | Fichier | Sections clés | Status |
-|---|---|---|---|
-| 1 | `01_cahier_des_charges_P13_partie_1.md` | Besoin métier, objectifs, périmètre, **5 contraintes**, livrables, critères succès | [x] |
-| 2 | `02_veille_technologique_P13_partie_1.md` | 5 solutions (Pandas, GE, Soda, ydata, Aikido), **6 critères explicites**, 3-stage maturity | [x] |
-| 3 | `03_journal_ia_P13_partie_1.md` | **26 prompts tracés**, 13 essais consolidés (M00-M13), décisions humaines | [x] |
-| 4 | `04_plan_projet_P13_partie_1.md` | Backlog (12 tasks), Kanban, planning J1-J4 [x], registre risques (8 risques) | [x] |
-| 5 | `05_matrice_indicateurs_P13_partie_1.md` | 8 sections évaluation (veille, besoin, CDC, orga, doc/IA/repro) | [x] |
-| 6 | `06_synthese_finale_P13_partie_1.md` | Avant/après (4 axes), 3-horizon roadmap, 15-point checklist, conclusions | [x] |
-| 7 | `07_checklist_publication_github.md` | **Ce fichier** - validation publication + 10 critères mission | [~] |
-| 8 | `13_great_expectations_strategy.md` | Stratégie GE pragmatique, 3 étapes, portfolio value | [x] |
+| 8 | `04_plan_projet_P13_partie_1.md` | Backlog (12 tasks), Kanban, planning J1-J4 [x], registre risques (8 risques) | [x] |
+| 9 | `05_matrice_indicateurs_P13_partie_1.md` | 8 sections évaluation (veille, besoin, CDC, orga, doc/IA/repro) | [x] |
+| 10 | `06_synthese_finale_P13_partie_1.md` | Avant/après (4 axes), 3-horizon roadmap, 15-point checklist, conclusions | [x] |
+| 11 | `07_checklist_publication_github.md` | **Ce fichier** - validation publication + 10 critères mission | [x] |
+| 12 | `13_great_expectations_strategy.md` | Stratégie GE pragmatique, 3 étapes, portfolio value | [x] |
 
 ---
 
@@ -52,7 +50,7 @@
 
 | # | Critère mission | Où documenté ? | Status |
 |---|---|---|---|
-| 1 | **Améliorer livrable existant** | 06_synthese (avant/après), notebook cell 46bis (metriques) | [x] |
+| 1 | **Améliorer livrable existant** | 06_synthese (avant/après), notebook cell 46bis (metriques), execution validée | [x] |
 | 2 | **IA critique & documentée** | 03_journal_ia (26 prompts), notebook cell 2bis (justifications), 06_synthese | [x] |
 | 3 | **Tester plusieurs options** | 02_veille (5 solutions), notebook cell 2bis (alternatives Pandas/GE/Soda) | [x] |
 | 4 | **Comparer selon critères EXPLICITES** | 02_veille (tableau 6 critères : qualité, robustesse, temps, repro, sécurité, conformité) | [x] |
@@ -60,7 +58,7 @@
 | 6 | **Identifier besoins métier + contraintes** | 01_cahier_des_charges (5 contraintes listées), cell 2bis (4 appliquées) | [x] |
 | 7 | **Formaliser cahier des charges** | 01_cahier_des_charges_P13_partie_1.md (complet, [x] status) | [x] |
 | 8 | **Organiser projet data** | 04_plan_projet_P13_partie_1.md (backlog 12 tasks, kanban, planning) | [x] |
-| 9 | **Outils de gestion de projet** | GitHub Projects (Kanban) + capture requise dans output/captures/ | [~] |
+| 9 | **Outils de gestion de projet** | GitHub Projects (Kanban) + captures dans output/captures/ ✅ | [x] |
 | 10 | **Intégrer différentes contraintes** | 01_cahier_des_charges (5 types), cell 2bis (4 appliquées : délai, RGPD, budget, sobriété) | [x] |
 
 ---
@@ -70,14 +68,16 @@
 ### Data & Structure
 - [x] `P6_initial/data/` : erp.xlsx, web.xlsx, liaison.xlsx présents
 - [x] `output/dataviz/` : **13 fichiers HTML Plotly** générés (CA, Pareto, anomalies, stocks, corrélations)
-- [ ] `output/captures/` : **À créer - 6-8 screenshots portfolio**
-  - [ ] `01_mission_p6_bottleneck.png` (context slide)
-  - [ ] `02_notebook_structure_49cells.png` (notebook overview)
-  - [ ] `03_quality_report_18controls.png` (Phase I validation)
-  - [ ] `04_before_after_metrics.png` (68% cells, 76% time improvement)
-  - [ ] `05_kpi_dashboard_phase2.png` (CA 143k€, Pareto, anomalies)
-  - [ ] `06_kanban_github_projects.png` (Kanban 12 tasks final)
-  - [ ] `07_dataviz_sample_2plots.png` (2 graphiques Plotly examples)
+- [x] `output/captures/` : **9 screenshots portfolio créés et validés** ✅
+  - [x] `01_mission_p6_bottleneck.png` (context slide)
+  - [x] `02_notebook_structure_49cells.png` (notebook overview - 50 cells actuellement)
+  - [x] `03_quality_report_18controls.png` (Phase I validation)
+  - [x] `04_before_after_metrics.png` (68% cells, 76% time improvement)
+  - [x] `05_kpi_dashboard_phase2.png` (CA 143k€, Pareto, anomalies)
+  - [x] `06_kanban_github_projects.png` (Kanban 12 tasks final)
+  - [x] `07_dataviz_sample_correlations.png` (2 graphiques Plotly examples)
+  - [x] `08_ia_journal_26prompts.png` (IA traceability documentation)
+  - [x] `github_project_kanban_en_cours.png` (Project management proof)
   - [ ] `08_ia_journal_26prompts.png` (journal IA coverage snapshot)
 
 ### Documentation référencées OK
