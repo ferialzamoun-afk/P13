@@ -38,10 +38,12 @@ Partie_1/P6_ameliore_IA/output/*.csv
 Partie_1/P6_ameliore_IA/output/*.xlsx
 Partie_2/
 
-# Support files (not in public README)
-Partie_1/P6_ameliore_IA/CHEMIN_DEBUG.md
-CAPTURES_GENERATION_GUIDE.md
-GUIDE_EXECUTION_NOTEBOOK.md
+# Support docs - Keep only core documentation (01-07, 13) + guides
+Partie_1/P6_ameliore_IA/docs/08_*.md
+Partie_1/P6_ameliore_IA/docs/09_*.md
+Partie_1/P6_ameliore_IA/docs/10_*.md
+Partie_1/P6_ameliore_IA/docs/11_*.md
+Partie_1/P6_ameliore_IA/docs/12_*.md
 
 # Temporary files
 *.tmp
