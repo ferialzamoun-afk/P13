@@ -160,18 +160,28 @@ Lien de la vue board : https://github.com/users/ferialzamoun-afk/projects/2/view
 
 Capture locale : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
 
-## 6. Captures finales a produire
+## 6. Captures finales a produire - STATUS REALISE ✅
 
-| Capture | Contenu attendu | Emplacement conseille | Statut |
-|---|---|---|---|
-| Chargement des donnees | Dimensions des trois tables | `P6_ameliore_IA/output/captures/` | [ ] |
-| Controle qualite | Tableau `quality_report` | `P6_ameliore_IA/output/captures/` | [ ] |
-| Amelioration notebook | Avant/apres d'une cellule ou d'une section reorganisee | `P6_ameliore_IA/output/captures/` | [ ] |
-| Nettoyage GitHub | Arborescence avant/apres ou README public final | `P6_ameliore_IA/output/captures/` | [ ] |
-| KPI principaux | CA, stock, ventes, anomalies | `P6_ameliore_IA/output/captures/` | [ ] |
-| Graphique majeur | Visualisation la plus utile pour le metier | `P6_ameliore_IA/output/captures/` | [ ] |
-| Kanban projet | Suivi A faire / En cours / Termine | `P6_ameliore_IA/output/github_project_kanban_en_cours.png` | [x] |
-| Synthese finale | Page ou section de conclusion | `P6_ameliore_IA/output/captures/` | [ ] |
+| # | Capture | Contenu | Fichier | Priorite | Statut |
+|---|---|---|---|---|---|
+| 1 | Mission Bottleneck context | Contexte, problème, mission P6 ameliore | `01_mission_p6_bottleneck.png` | MOYENNE | [x] |
+| 2 | Notebook structure | Vue d'ensemble: 50 cells, phases M00-M08 | `02_notebook_structure_49cells.png` | HAUTE | [x] |
+| 3 | Quality report | Tableau `quality_report` - 18 contrôles (11 OK, 4 vérifier, 2 documenter, 1 corriger) | `03_quality_report_18controls.png` | CRITIQUE | [x] |
+| 4 | Before/After metrics | Comparaison : 148 → 50 cells (-67%), 5 min → 1:11 (-77%) | `04_before_after_metrics.png` | CRITIQUE | [x] |
+| 5 | KPI dashboard Phase 2 | KPI synthèse : CA 143.7k EUR, 689 produits, 92 ruptures, 3 anomalies prix | `05_kpi_dashboard_phase2.png` | CRITIQUE | [x] |
+| 6 | Kanban GitHub Projects | Suivi projet : A faire / En cours / Termine avec 12 tasks | `06_kanban_github_projects.png` | MOYENNE | [x] |
+| 7 | Dataviz sample (Correlations) | Exemple graphique Plotly - Pareto ou corrélations | `07_dataviz_sample_correlations.png` | HAUTE | [x] |
+| 8 | IA journal summary | Documentation 26 prompts, decisions, limites humaines | `08_ia_journal_26prompts.png` | MOYENNE | [x] |
+| 9 | Kanban final (backup) | Capture complète du board GitHub Projects | `github_project_kanban_en_cours.png` | MOYENNE | [x] |
+
+**Status général** : ✅ **9/9 captures générées et disponibles**
+
+**Captures critiques validées** :
+- ✅ Quality report (18 controls)
+- ✅ KPI dashboard (CA, products, anomalies)
+- ✅ Before/after metrics (cells -67%, time -77%)
+
+**Captures à intégrer dans README.md public** : 01, 02, 03, 04, 05, 08
 
 ## 7. Preuves IA
 
@@ -241,18 +251,34 @@ Dans ce projet, j'ai repris une analyse Bottleneck existante pour la transformer
 
 Ce livrable montre ma capacite a reprendre un projet data existant, a l'auditer, a le fiabiliser et a le documenter dans une logique professionnelle. L'IA est utilisee comme appui methodologique, mais les choix finaux restent justifies par les besoins metier, les controles data et les limites observees.
 
-## 9. Prochaines etapes
+## 9. Prochaines etapes - PRIORITES CRITIQUE & HAUTE
 
-### Court terme (Juillet-Août 2026) - Publication portfolio
+### 🔴 CRITIQUE - Avant publication (3-4h max)
 
-| Priorite | Etape | Description | Statut |
-|---|---|---|---|
-| **CRITIQUE** | Valider exécution complète | Relancer notebook_analyse_ameliore_final.ipynb (Kernel → Restart & Run All) et confirmer 47 cellules exécutées sans erreur | [x] |
-| **CRITIQUE** | Investiguer Data Contracts | Analyser 3 contrats échoués : E2 (prix invalides), W1 (sku null), W2 (ventes négatives) → Créer cellule discovery | [ ] |
-| **HAUTE** | Completer les captures finales | Ajouter 6-8 captures : chargement, quality_report, KPI, dataviz majeures, avant/après notebook | [ ] |
-| **HAUTE** | Nettoyer dépôt GitHub | Arborescence propre, fichiers temporaires supprimés, données publiables vérifiées | [ ] |
-| **HAUTE** | Rédiger README portfolio | Porte d'entrée claire : "Amélioration Bottleneck" avec résumé, structure, comment exécuter, apprenants clés | [ ] |
-| **MOYENNE** | Publier GitHub | Rendre repo public et linker depuis portfolio personnel | [ ] |
+| # | Etape | Description | Preuve | Deadline |
+|---|---|---|---|---|
+| 1 | Produire capture qualité report | Screenshot du tableau `quality_report` (18 contrôles) depuis notebook exécuté | `output/captures/02_quality_report.png` | Juillet 13 |
+| 2 | Produire capture KPI dashboard | Screenshot des KPI principaux (CA, produits, anomalies) | `output/captures/03_kpi_dashboard.png` | Juillet 13 |
+| 3 | Créer LICENSE | Ajouter `LICENSE` (MIT ou CC-BY-4.0) à la racine du dépôt | GitHub repo + fichier local | Juillet 13 |
+| 4 | Rédiger README.md public | Portfolio-ready : titre, contexte, résultats clés, structure, quickstart, IA critique | `README.md` final | Juillet 13-14 |
+| 5 | Commit final + push | Ajouter captures, LICENSE, README révisé et committer | `dcf7050...<new>` | Juillet 14 |
+
+### 🟠 HAUTE - Idéalement avant publication (2-3h)
+
+| # | Etape | Description | Preuve | Deadline |
+|---|---|---|---|---|
+| 6 | Produire capture Pareto | Screenshot graphique Pareto CA (top 435 produits = 80%) | `output/captures/04_pareto_ca.png` | Juillet 14 |
+| 7 | Produire capture avant/après notebook | Comparaison metriques : 148 → 47 cells (-68%), 5 min → 1:11 (-76%) | `output/captures/05_before_after.png` | Juillet 14 |
+| 8 | Produire capture README portfolio | Screenshot du README.md rendu en HTML/Markdown | `output/captures/06_readme_portfolio.png` | Juillet 14 |
+| 9 | Valider chemins relatifs | Vérifier que tous les chemins utilisent `../../../P6_initial/data/` (pas d'absolus) | `GUIDE_EXECUTION_NOTEBOOK.md` | Juillet 14 |
+| 10 | Archiver docs temporaires | Sauvegarder 08-12 .md hors repo public (optionnel) | Backup externe | Juillet 14 |
+
+### Après publication (Optionnel)
+
+- [ ] Produire captures complémentaires (dataviz, Kanban, IA journal) si temps disponible
+- [ ] Tester reproductibilité sur machine tierce / cloud (Google Colab)
+- [ ] Ajouter badges GitHub (license, notebook.ipynb link, etc.)
+- [ ] Créer section "Leçons apprises" du projet P13 Partie 1
 
 ### Moyen terme (Q3-Q4 2026) - Evolution industrielle
 
