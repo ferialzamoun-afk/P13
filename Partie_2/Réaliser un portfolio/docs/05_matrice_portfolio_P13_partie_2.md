@@ -27,22 +27,22 @@ Cette matrice permet de suivre la preparation du portfolio, la qualite des preuv
 
 ## 2. Matrice de suivi des 14 projets
 
-| Projet | Type de preuve attendue | Competences a valoriser | Metriques possibles | Statut |
-|---|---|---|---|---|
-| Projet 1 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 2 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 3 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 4 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 5 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 6 - Bottleneck | Notebook P6 ameliore + documentation Partie 1 + capture resultat | Python, Pandas, nettoyage, rapprochement de donnees, EDA, detection d'anomalies, pilotage IA | CA total, valeurs manquantes, doublons, anomalies, temps d'execution, controles qualite | [~] |
-| Projet 7 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 8 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 9 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 10 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 11 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 12 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 13 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
-| Projet 14 - A completer | README projet + lien livrable + capture | A completer | KPI, volume donnees, outils, resultat | [ ] |
+| # | Projet | Type de preuve attendue | Competences a valoriser | Metriques possibles | Statut |
+|---|---|---|---|---|---|
+| 1 | P1 - Presentation portfolio | **À AUDITER** | Communication, présentation | Clarté pitch, sections | [ ] |
+| 2 | P2 - Analyse ecommerce | **À AUDITER** | SQL, Pandas, EDA, visualisation | Volume données, KPI vendus | [ ] |
+| 3 | P3 - Requetes SQL | **À AUDITER** | SQL, requêtes complexes, jointures | Nombre requêtes, complexité | [ ] |
+| 4 | P4 - Etude sante publique | **À AUDITER** | Collecte données, analyse, sourcing | Sources utilisées, KPI santé | [ ] |
+| 5 | P5 - Base immobiliere SQL | **À AUDITER** | SQL, PostgreSQL, normalisation | Taille DB, requêtes | [ ] |
+| 6 | P6 - Bottleneck ⭐ | Notebook P6 ameliore + Partie 1 docs + 9 captures | Python, Pandas, nettoyage, rapprochement, EDA, detection anomalies, pilotage IA, governance | CA 143.7k EUR, 825 produits, 714 web match, -68% cells, -76% temps, 26 prompts tracés, 18 controles qualité | [x] |
+| 7 | P7 - Dashboard PowerBI | **À AUDITER** | Power BI, visualisation, KPI metier | Nombre dashboards, users | [ ] |
+| 8 | P8 - DBT project | **À AUDITER** | DBT, transformations, SQL, orchestration | Nombre models, tests | [ ] |
+| 9 | P9 - Analyses ventes librairies | **À AUDITER** | Pandas, EDA, segmentation, analyses | Volume données, insights | [ ] |
+| 10 | P10 - Eau potable DWFA | **À AUDITER** | Data warehouse, dimensionnels, SQL | Taille DW, modèles | [ ] |
+| 11 | P11 - Etude marche | **À AUDITER** | Statistiques, ACP, CAH, segmentation | Segments trouvés, variance | [ ] |
+| 12 | P12 - Faux billets | **À AUDITER** | ML, classification, modélisation | Accuracy, F1-score | [ ] |
+| 13 | P13 - Portfolio + IA ⭐ | Documentation P13 Partie 1 + Partie 2 + matrice | Pilotage projet, IA governance, documentation, veille technologique | 10 critères mission validés, 14 essais IA, 3-stage roadmap, 16 docs | [~] |
+| 14 | P14 - Stage retail | **À AUDITER** | Projet complet, Streamlit, Power BI | KPI retail, pipeline | [ ] |
 
 ## 3. Niveau de profondeur par projet
 
@@ -68,28 +68,25 @@ Cette matrice permet de suivre la preparation du portfolio, la qualite des preuv
 
 ## 5. Matrice competences x projets
 
-| Competence | Projets qui la prouvent | Preuve a ajouter | Statut |
+| Competence RNCP37837 | Projets qui la prouvent | Preuve principale | Statut |
 |---|---|---|---|
-| Collecter et integrer des donnees | A completer | Source de donnees, import, requetes, fichiers. | [ ] |
-| Nettoyer et preparer les donnees | P6 Bottleneck + a completer | Notebook, controles qualite, traitement valeurs manquantes/doublons. | [ ] |
-| Analyser les donnees | P6 Bottleneck + a completer | EDA, indicateurs, segmentation, analyses metier. | [ ] |
-| Visualiser et restituer | A completer | Dashboard, graphiques, captures, rapport. | [ ] |
-| Utiliser SQL | A completer | Requetes, schema, resultats. | [ ] |
-| Utiliser Python | P6 Bottleneck + a completer | Notebook, scripts, librairies. | [ ] |
-| Communiquer des recommandations | A completer | Synthese, conclusions, recommandations. | [ ] |
-| Documenter et versionner | P6 Bottleneck + portfolio | README, GitHub, changelog, issues. | [ ] |
-| Piloter un projet data | P13 Partie 1 | Planning, backlog, risques, matrice indicateurs. | [ ] |
-| Utiliser l'IA de maniere critique | P13 Partie 1 | Prompts, variantes, decisions humaines, limites. | [ ] |
+| **BC01 - Gérer une base de données** | P10 (DW eau), P5 (immo SQL) | Schémas DB, normalisation, SQL | [ ] |
+| **BC02 - Identifier et collecter données** | P2, P4, P9, P6, P14 | Imports, sources, acquisition | [ ] |
+| **BC03 - Visualiser et restituer** | P7 (PowerBI), P6, P14, P12 | Dashboards, KPI, captures | [x] |
+| **BC04 - Piloter projet data** | P13 (Partie 1), P6, P12, P14 | Planning, risques, backlog, KPI | [~] |
+| **BC05 - Analyser données & statistiques** | P11 (ACP/CAH), P12 (ML), P6, P2 | EDA, modélisation, segmentation | [ ] |
+| **Compétence transversale** | **Utiliser l'IA de manière critique** | P13 Partie 1 (journal IA + 26 prompts tracés) | [x] |
 
-## 6. Actions immediates
+## 6. Actions immediates (PRIORITAIRES)
 
-| Priorite | Action | Livrable cible | Statut |
-|---|---|---|---|
-| 1 | Lister les noms exacts des 14 projets du portfolio. | Matrice projets completee | [ ] |
-| 2 | Identifier les 3 a 4 projets les plus forts apres Bottleneck. | Niveau de profondeur defini | [ ] |
-| 3 | Creer ou harmoniser le README principal du portfolio. | README portfolio | [ ] |
-| 4 | Ajouter une capture ou preuve visuelle pour chaque projet prioritaire. | Assets/captures | [ ] |
-| 5 | Verifier les liens GitHub et chemins relatifs. | Portfolio publiable | [ ] |
+| Priorite | Action | Livrable cible | Deadline | Statut |
+|---|---|---|---|---|
+| 🔴 CRITIQUE | Finaliser P6 Bottleneck publication | README.md public + LICENSE + captures pushées GitHub | Juillet 14 | [ ] |
+| 🔴 CRITIQUE | Créer README portfolio principal | Présentation, objectif, liens P6, structure projets | Juillet 15 | [ ] |
+| 🟠 HAUTE | Lister noms exacts P1-P5, P7-P14 | Noms + types livrables + état (public/privé) | Juillet 15 | [ ] |
+| 🟠 HAUTE | Identifier 3-4 projets phares après P6 | Priorisation niveau 2 dans matrice | Juillet 16 | [ ] |
+| 🟡 MOYENNE | Créer gabarit README harmonisé | Template reproductible pour tous les projets | Juillet 16 | [ ] |
+| 🟡 MOYENNE | Valider liens GitHub existants | Audit P1-P14 (cassés ? actifs ? publics ?) | Juillet 17 | [ ] |
 
 ## 7. Grille de validation Mission 2 (format jury)
 
