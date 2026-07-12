@@ -1,25 +1,50 @@
-# Python environments
+# Virtual environments
 .venv/
 venv/
+env/
+ENV/
 
-# Python cache
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter Notebook
 .ipynb_checkpoints/
+*.ipynb_checkpoints
 
-# Local outputs and temporary files
-*.tmp
-*.log
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Partie_1 - Keep source code/docs/notebooks, ignore raw/local artifacts
-Partie_1/P6_ameliore_IA/data/
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project-specific - Keep only README-documented files
 Partie_1/P6_ameliore_IA/backups/
-Partie_1/P6_ameliore_IA/CHEMIN_DEBUG.md
+Partie_1/P6_ameliore_IA/notebooks/bottleneck_analyse_refactoree.ipynb
+Partie_1/P6_ameliore_IA/output/*.csv
+Partie_1/P6_ameliore_IA/output/*.xlsx
+Partie_2/
 
-# Partie_1 - Keep only showcase outputs referenced in README structure
-Partie_1/P6_ameliore_IA/output/*
-!Partie_1/P6_ameliore_IA/output/dataviz/
-!Partie_1/P6_ameliore_IA/output/dataviz/**
-!Partie_1/P6_ameliore_IA/output/captures/
-!Partie_1/P6_ameliore_IA/output/captures/**
+# Support files (not in public README)
+Partie_1/P6_ameliore_IA/CHEMIN_DEBUG.md
+CAPTURES_GENERATION_GUIDE.md
+GUIDE_EXECUTION_NOTEBOOK.md
+
+# Temporary files
+*.tmp
+*.temp
+*.log
 
