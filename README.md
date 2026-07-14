@@ -7,6 +7,20 @@ Ce projet est decoupe en 2 parties.
 
 A l'issue de ce dernier projet, vous presenterez les livrables de la mission a un mentor evaluateur lors d'une **soutenance**.
 
+---
+
+## 📋 Proof Point : Vue Client/Recruteur
+
+| Pilier | Résumé |
+|--------|--------|
+| **1️⃣ Besoin Métier** | Validation compétences Data Analyst (RNCP-37837) via portfolio + soutenance. Enjeu : formaliser et documenter la progression P1-P12 (data cleaning → analytics → ML → deployment) avec preuves tangibles pour recruteurs/clients. |
+| **2️⃣ Données** | **Sources** : 12 projets (P1-P12) + synthèse P13-P14 avec livrables heterogenes (notebooks, APIs, dashboards, exports CSV/Power BI). **Qualité** : ✅ Documentés complets. **Limites** : Données projets partiellement fournis (pas données live), analyses rétrospectives. |
+| **3️⃣ Démarche** | **Stack** : GitHub Pages (portfolio hub) + markdown documentation (veille métier/techno) + réutilisable templates (proof points). **Pipeline** : Sélection preuves (6 phares) → Structuration 5 piliers (contexte/données/démarche/résultats/limites) → Narration recruteur (impact business + compétences RNCP-BC01-BC05) → Portfolio frontend déploiement. Justification : Proof points standardisés → comparabilité compétences / validation RNCP mapping. |
+| **4️⃣ Résultats** | **KPIs** : Portfolio 6 phares (P6-P14 sélections) + 9 secondaires ; 5 compétences bloc RNCP couverts (100%) ; veille techno 10 sections, veille métier 5 domaines. **Livrables** : README synthétique + 6 proof points (format template) + veille documentée + soutenance slides. |
+| **5️⃣ Limites** | Portfolio statique (données snapshot) ; preuves documentées a posteriori (vs live production). **Pistes** : Intégrer metrics temps réel (GitHub workflows KPIs) ; ajouter testimonials clients/mentors ; créer interactive dashboard portfolioprojects. |
+
+---
+
 ## Organisation du dossier
 
 | Dossier | Role |
