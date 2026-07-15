@@ -21,13 +21,50 @@ A l'issue de ce dernier projet, vous presenterez les livrables de la mission a u
 
 ---
 
+## 📚 Partie 2 - Réalisation du portfolio
+
+La Partie 2 transforme les livrables techniques des projets P1 à P14 en un **portfolio professionnel** lisible par un recruteur, un client ou un évaluateur. L’objectif n’est pas seulement de lister des projets, mais de montrer rapidement : le contexte, l’action menée, le résultat obtenu, et la valeur métier.
+
+### Vue client / recruteur
+
+| Attente | Ce que doit voir le recruteur / client |
+|---|---|
+| **Compréhension rapide** | Un README clair en moins de 5 minutes, avec un positionnement professionnel et des liens utiles. |
+| **Preuves concrètes** | Des projets phares, des captures, des livrables publics, et des résultats chiffrés ou observables. |
+| **Cohérence métier** | Un mapping explicite des projets vers les compétences RNCP et les besoins métier ciblés. |
+| **Crédibilité** | Une structure propre, des sources identifiables, et une vitrine cohérente avec la soutenance. |
+| **Projection** | Une lecture orientée impact : ce que j’ai fait, pourquoi, avec quels outils, et pour quel usage. |
+
+### Ce qui est publié dans la Partie 2
+
+- Une matrice portfolio pour prioriser les projets et les compétences.
+- Des guides de mise en forme et d’intégration pour la vitrine GitHub Pages.
+- Des preuves de compétences sélectionnées et harmonisées.
+- Une narration adaptée à une lecture recruteur / client, avec focus sur l’impact et la lisibilité.
+
+### Livrables principaux
+
+| Document | Rôle |
+|---|---|
+| `Partie_2/README.md` | Point d’entrée de la Partie 2 et synthèse du portefeuille. |
+| `Partie_2/05_matrice_portfolio_P13_partie_2.md` | Matrice d’arbitrage entre projets, compétences et priorités. |
+| `Partie_2/Réaliser un portfolio/docs/09_guide_integration_partie_2.md` | Méthode d’intégration complète de la Partie 2. |
+| `Partie_2/Réaliser un portfolio/docs/08_guide_github_pages_portfolio.md` | Publication GitHub Pages et mise en ligne. |
+
+### Résultat attendu
+
+La Partie 2 doit permettre de présenter un portfolio crédible, orienté valeur métier, avec un chemin de lecture simple pour un recruteur et des preuves suffisamment claires pour soutenir la discussion en entretien.
+
+---
+
 ## Organisation du dossier
 
 | Dossier | Role |
 |---|---|
 | `Partie 1/P6_initial/` | lien github :  |
 | `Partie 1/P6_ameliore_IA/` | Version de travail pour l'amelioration IA : documentation, audit, checklist, notebook ameliore et preuves. |
-| `Partie 2/Realiser un portfolio/` | Preparation du portfolio final et structuration des preuves de competences. |
+| `Partie_2/` | Preparation du portfolio final et structuration des preuves de competences. |
+| `Partie_2/Réaliser un portfolio/` | Guides, matrice et ressources de publication du portfolio. |
 
 ## Etat actuel de la Partie 1
 
@@ -45,3 +82,15 @@ Le notebook ameliore a ete cree dans `Partie 1/P6_ameliore_IA/notebooks/`, mais 
 | Synthese finale | `Partie 1/P6_ameliore_IA/docs/06_synthese_finale_P13_partie_1.md` |
 | Checklist publication GitHub | `Partie 1/P6_ameliore_IA/docs/07_checklist_publication_github.md` |
 | Audit notebook initial | `Partie 1/P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md` |
+
+### Partie 2
+
+| Preuve | Emplacement |
+|---|---|
+| Matrice portfolio principale | `Partie_2/05_matrice_portfolio_P13_partie_2.md` |
+| README Partie 2 | `Partie_2/README.md` |
+| Guide intégration complet | `Partie_2/Réaliser un portfolio/docs/09_guide_integration_partie_2.md` |
+| Guide GitHub Pages | `Partie_2/Réaliser un portfolio/docs/08_guide_github_pages_portfolio.md` |
+| Guide assets et preuves | `Partie_2/Réaliser un portfolio/docs/10_guide_assets_preuves_portfolio.md` |
+
+Ces éléments servent à structurer la vitrine portfolio, à expliciter la valeur métier des projets et à préparer une lecture claire pour un recruteur ou un client.
