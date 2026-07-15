@@ -61,27 +61,41 @@ La Partie 2 doit permettre de présenter un portfolio crédible, orienté valeur
 
 | Dossier | Role |
 |---|---|
-| `Partie 1/P6_initial/` | lien github :  |
-| `Partie 1/P6_ameliore_IA/` | Version de travail pour l'amelioration IA : documentation, audit, checklist, notebook ameliore et preuves. |
+| `Partie_1/` | Vue racine de la Partie 1 avec fiches de cadrage, hypotheses, tests, resultats, limites et decisions. |
+| `Partie_1/P6_initial/` | Base de reference issue du projet P6 avant amelioration. |
+| `Partie_1/P6_ameliore_IA/` | Version de travail pour l'amelioration IA : documentation, audit, checklist, notebook ameliore et preuves detaillees. |
 | `Partie_2/` | Preparation du portfolio final et structuration des preuves de competences. |
 | `Partie_2/Réaliser un portfolio/` | Guides, matrice et ressources de publication du portfolio. |
 
 ## Etat actuel de la Partie 1
 
-Le notebook ameliore a ete cree dans `Partie 1/P6_ameliore_IA/notebooks/`, mais il n'a pas encore ete corrige ni refactore. Il sert pour l'instant de base de travail afin de derouler la checklist d'audit, de refactoring, de controle qualite et de publication GitHub.
+La Partie 1 est maintenant structuree autour d'un notebook ameliore, de fiches racine de synthese dans `Partie_1/` et d'un dossier de preuves detaillees dans `Partie_1/P6_ameliore_IA/`. Elle couvre le cadrage, la veille, les hypotheses, les tests, les resultats, les limites et les decisions, avec une logique de lecture adaptee a la soutenance comme au recruteur.
 
 ## Preuves principales
 
 | Preuve | Emplacement |
 |---|---|
-| Cahier des charges | `Partie 1/P6_ameliore_IA/docs/01_cahier_des_charges_P13_partie_1.md` |
-| Veille technologique | `Partie 1/P6_ameliore_IA/docs/02_veille_technologique_P13_partie_1.md` |
-| Journal IA | `Partie 1/P6_ameliore_IA/docs/03_journal_ia_P13_partie_1.md` |
-| Plan projet et kanban | `Partie 1/P6_ameliore_IA/docs/04_plan_projet_P13_partie_1.md` |
-| Matrice d'indicateurs | `Partie 1/P6_ameliore_IA/docs/05_matrice_indicateurs_P13_partie_1.md` |
-| Synthese finale | `Partie 1/P6_ameliore_IA/docs/06_synthese_finale_P13_partie_1.md` |
-| Checklist publication GitHub | `Partie 1/P6_ameliore_IA/docs/07_checklist_publication_github.md` |
-| Audit notebook initial | `Partie 1/P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md` |
+| Veille metier et technologique | `Partie_1/01_veille_metier_technologique.md` |
+| Cahier des charges fonctionnel | `Partie_1/02_cahier_des_charges_fonctionnel.md` |
+| Mini formation metiers | `Partie_1/03_mini_formation_metiers.md` |
+| Hypotheses de travail | `Partie_1/04_hypotheses.md` |
+| Tests et validations | `Partie_1/05_tests.md` |
+| Resultats | `Partie_1/06_resultats.md` |
+| Limites | `Partie_1/07_limites.md` |
+| Decisions | `Partie_1/08_decisions.md` |
+
+### Sources detaillees Partie 1
+
+| Source detaillee | Emplacement |
+|---|---|
+| Cahier des charges detaille | `Partie_1/P6_ameliore_IA/docs/01_cahier_des_charges_P13_partie_1.md` |
+| Veille technologique detaillee | `Partie_1/P6_ameliore_IA/docs/02_veille_technologique_P13_partie_1.md` |
+| Journal IA detaille | `Partie_1/P6_ameliore_IA/docs/03_journal_ia_P13_partie_1.md` |
+| Plan projet et kanban | `Partie_1/P6_ameliore_IA/docs/04_plan_projet_P13_partie_1.md` |
+| Matrice d'indicateurs | `Partie_1/P6_ameliore_IA/docs/05_matrice_indicateurs_P13_partie_1.md` |
+| Synthese finale detaillee | `Partie_1/P6_ameliore_IA/docs/06_synthese_finale_P13_partie_1.md` |
+| Checklist publication GitHub | `Partie_1/P6_ameliore_IA/docs/07_checklist_publication_github.md` |
+| Audit notebook initial | `Partie_1/P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md` |
 
 ### Partie 2
 
