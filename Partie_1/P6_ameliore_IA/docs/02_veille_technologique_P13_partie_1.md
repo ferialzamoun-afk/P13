@@ -36,7 +36,7 @@ Date de lancement : 2026-07-07.
 |---|---|---|---|
 | Pandas | ✅ Oui | Phase I + II | Contrôles 18 points (doublons, manquants, clés) |
 | Ruff/nbQA | ⚠️ Si temps | Phase III | Qualité code avant publication |
-| Aikido Security | ⚠️ Post-pub | Phase IV | Scan sécurité GitHub |
+| Aikido Security | ✅ Workflow prêt, activation via secret GitHub | Phase IV | Scan sécurité GitHub |
 | Great Expectations | ❌ Non prioritaire | Futur | Trop lourd pour 1 notebook |
 
 **Livrables attendus** : Notebook exécutable, GUIDE_EXECUTION.md, 18 contrôles qualité documentés, 13 dataviz
@@ -78,7 +78,7 @@ Date de lancement : 2026-07-07.
 1. ✅ **Contrôles Pandas** : 18 points validation déjà implémentés
 2. ✅ **Great Expectations** : Implémentation légère Phase I (5-6 expectations clés) → **NOUVEAU**
 3. ✅ **Ruff/nbQA** : Script optionnel pour qualité code
-4. ✅ **Aikido** : À activer après publication GitHub
+4. ✅ **Aikido** : Workflow GitHub ajouté, activation finale via `AIKIDO_CLIENT_API_KEY`
 
 ### Justification implémentation Data Contracts
 - **Court terme** : Pragmatique via pandas assertions (pas d'API complexity GE v19+)
@@ -96,6 +96,14 @@ Date de lancement : 2026-07-07.
 | Documentation nbQA | Documentation | Lint notebooks Jupyter | 2026-07-07 |
 | Documentation Aikido Security | Documentation | Scan securite depot | 2026-07-07 |
 | GitHub Docs | Documentation | Publication, README, alertes securite | 2026-07-07 |
+
+## Mise en place retenue pour T12
+
+- Workflow ajoute dans `.github/workflows/aikido.yml`
+- Trigger sur `push` `main`, `pull_request` `main`, `workflow_dispatch` et scan planifie hebdomadaire
+- Scan gate configure pour **SAST**, **IaC** et **secrets**
+- Dependency scanning couvert via le cloud scan Aikido
+- Activation finale conditionnee par le secret GitHub `AIKIDO_CLIENT_API_KEY`
 
 ## Pistes d'amelioration continue
 

@@ -94,7 +94,17 @@
 - [x] **Pas de données métier sensibles** (contacts, emails, infos personnelles)
 - [x] **Chemins relatifs** validés (pas d'absolus avec noms d'utilisateurs Windows)
 - [ ] **Fichiers temporaires** supprimés (`*.tmp`, `__pycache__`, `.ipynb_checkpoints`, backups/)
-- [ ] **Git config** : `.gitignore` incluant `data/`, `backups/`, `.venv/`
+- [x] **Git config** : `.gitignore` incluant `backups/`, `.venv/`, `__pycache__`, checkpoints et exports temporaires
+- [x] **Workflow GitHub Aikido** ajouté : `.github/workflows/aikido.yml`
+- [ ] **Secret GitHub** `AIKIDO_CLIENT_API_KEY` ajouté dans le repo pour activer le scan
+- [ ] **Premier scan Aikido** exécuté et preuve/capture archivée
+
+### Statut Aikido / security scanning
+
+- **Workflow prêt** : oui, au niveau racine du repo P13.
+- **Déclencheurs** : `push` sur `main`, `pull_request` sur `main`, lancement manuel, scan planifié hebdomadaire.
+- **Couverture prévue** : SAST, IaC, secrets scanning, dependency scanning.
+- **Blocage restant** : ajout manuel du secret GitHub `AIKIDO_CLIENT_API_KEY` dans les settings du dépôt.
 
 ---
 
@@ -118,7 +128,7 @@
 - [ ] `Partie 2/` (hors scope P13 Partie 1 - archiver séparément)
 
 ### À créer avant publication
-- [ ] `.gitignore` (data/, backups/, .venv/, __pycache__, *.pyc)
+- [x] `.gitignore` (backups/, .venv/, __pycache__, *.pyc, checkpoints, exports temporaires)
 - [ ] `LICENSE` (MIT ou CC-BY-4.0)
 - [ ] `README.md` version publique (réécriture complète)
 - [ ] OPTIONAL : `CONTRIBUTING.md`
@@ -184,11 +194,17 @@
 - [ ] Supprimer notebooks ancien + backups
 - [ ] Créer .gitignore
 - [ ] Vérifier pas de secrets
+- [ ] Ajouter `AIKIDO_CLIENT_API_KEY` dans GitHub Secrets
 
 **Étape 3** : README & docs finales
 - [ ] Rédiger README public
 - [ ] Ajouter LICENSE
 - [ ] Vérifier liens cohérents
+
+**Étape 3bis** : Sécurité
+- [x] Ajouter le workflow `.github/workflows/aikido.yml`
+- [ ] Lancer un premier scan Aikido avec secret configuré
+- [ ] Archiver une capture ou une note de validation sécurité
 
 **Étape 4** : Tests finaux
 - [ ] Clone repo frais

@@ -30,14 +30,14 @@
 | T09 | Preparer les preuves pour le portfolio | Moyenne | 1 h | T08 | [~] |
 | T10 | Documenter les ameliorations du notebook | Moyenne | 1 h 30 | T05 | [x] |
 | T11 | Renommer notebook et mettre a jour tous les fichiers de ref | Haute | 30 min | T10 | [x] |
-| T12 | Nettoyer le depot GitHub avant publication | Haute | 2 h | T11 | [~] |
+| T12 | Nettoyer le depot GitHub avant publication + setup Aikido/security scanning | Haute | 2 h | T11 | [~] |
 
 ## Kanban de suivi
 
 | A faire | En cours | Termine |
 |---|---|---|
-| T09 - Preparer les preuves pour le portfolio | T12 - Nettoyer le depot GitHub avant publication | T01 - Rediger le besoin metier reformule |
-| T12 - Nettoyer le depot GitHub avant publication |  | T02 - Creer le cahier des charges initial |
+| T09 - Preparer les preuves pour le portfolio | T12 - Nettoyer le depot GitHub avant publication + setup Aikido/security scanning | T01 - Rediger le besoin metier reformule |
+| T12 - Nettoyer le depot GitHub avant publication + setup Aikido/security scanning |  | T02 - Creer le cahier des charges initial |
 |  |  | T03 - Construire le tableau de veille |
 |  |  | T04 - Documenter 2 essais IA minimum |
 |  |  | T05 - Auditer le notebook P6 existant |

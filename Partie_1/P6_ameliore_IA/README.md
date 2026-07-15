@@ -122,6 +122,13 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 
 → Voir [`docs/03_journal_ia_P13_partie_1.md`](docs/03_journal_ia_P13_partie_1.md) pour traçabilité complète
 
+### Security scanning
+- ✅ **Workflow GitHub Aikido** ajouté : `.github/workflows/aikido.yml`
+- ✅ **Couverture prévue** : SAST, IaC, secrets et dependency scanning
+- ⚠️ **Activation finale** : ajouter le secret GitHub `AIKIDO_CLIENT_API_KEY`
+
+→ Voir [`docs/07_checklist_publication_github.md`](docs/07_checklist_publication_github.md) pour le statut de T12 et les étapes restantes
+
 ---
 
 ## 📊 Résultats clés
