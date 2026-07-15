@@ -18,32 +18,18 @@ jobs:
       contents: read
 
     steps:
-      - name: Check Aikido secret presence
-        id: aikido-secret
-        shell: bash
-        run: |
-          if [ -n "${{ secrets.AIKIDO_CLIENT_API_KEY }}" ]; then
-            echo "configured=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Warn when Aikido secret is missing
-        if: steps.aikido-secret.outputs.configured != 'true'
-        run: echo "::warning::AIKIDO_CLIENT_API_KEY is not configured. Add it in GitHub Secrets to activate SAST, IaC, secrets and dependency scanning."
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        if: steps.aikido-secret.outputs.configured == 'true'
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
 
       - name: Install Aikido CI API Client
-        if: steps.aikido-secret.outputs.configured == 'true'
         run: npm install --global @aikidosec/ci-api-client
 
       - name: Run Aikido release-gated scan
-        if: steps.aikido-secret.outputs.configured == 'true'
         run: >
           aikido-api-client scan-release
           ${{ github.event.repository.name }} ${{ github.sha }}

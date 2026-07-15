@@ -153,13 +153,19 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 
 ### Dataviz générées (13 fichiers)
 ```
-• chiffre_affaires_par_categorie.html
-• courbe_pareto_80_20.html
-• anomalies_prix_et_marges.html
-• distribution_stocks.html
-• rotation_mensuelle.html
-• correlations_quantitatives.html
-... (7 autres)
+• ca_par_type_produit.png
+• ca_stock_par_type_produit.png
+• boxplot_prix.png
+• kpi_chiffre_affaires.png
+• histogramme_top_20_ca_produits.png
+• mois_stock_produits.png
+• outliers_prix_methodes.png
+• top_10_ca_produits.png
+• phase1_kpi_chiffre_affaires.png
+• phase1_histogramme_top_20_ca_produits.png
+• pareto_parts_catalogue.png
+• pareto_ca.png
+• correlations_quantitatives.png
 ```
 
 ---
