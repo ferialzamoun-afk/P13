@@ -66,7 +66,7 @@ Partie 1/P6_ameliore_IA/
 ### 2️⃣ Installation
 ```bash
 # Clone repo
-git clone https://github.com/ferialzamoun-afk/P13.git && cd P13/Partie_1/P6_ameliore_IA
+git clone https://github.com/ferialzamoun-afk/P13.git && cd Partie_1/P6_ameliore_IA
 
 # Activate venv
 .venv\Scripts\Activate.ps1  # Windows PowerShell
