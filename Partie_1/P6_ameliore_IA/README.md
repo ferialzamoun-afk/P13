@@ -66,7 +66,7 @@ Partie 1/P6_ameliore_IA/
 ### 2️⃣ Installation
 ```bash
 # Clone repo
-git clone <repo-url> && cd <repo>
+git clone https://github.com/ferialzamoun-afk/P13.git && cd P13/Partie_1/P6_ameliore_IA
 
 # Activate venv
 .venv\Scripts\Activate.ps1  # Windows PowerShell
@@ -110,7 +110,7 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 → Voir [`docs/02_veille_technologique_P13_partie_1.md`](docs/02_veille_technologique_P13_partie_1.md) pour détails comparaison + roadmap 3-horizon
 
 ### Reproductibilité & RGPD
-- ✅ **Chemins relatifs** robustes (`../../../P6_initial/data/`)
+- ✅ **Chemins relatifs** robustes (`data/`)
 - ✅ **Zéro données nominatives** embarquées
 - ✅ **Vérification prérequis** automatique (Cell 1)
 - ✅ **Timekeeper** pour traçabilité performance
