@@ -2,6 +2,8 @@
 
 *Amélioration du livrable P6 avec IA, documentation critique et traçabilité complète*
 
+Document de livraison unique (version consolidee): docs/00_dossier_projet_unique_P13_partie_1.md
+
 ---
 
 ## 📊 En 30 secondes
