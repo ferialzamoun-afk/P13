@@ -14,6 +14,14 @@
 | 8. Publication GitHub | Nettoyage du depot, README public, preuves finales | Checklist publication GitHub | Depot presentable ou decision de garder prive justifiee |
 | 9. Restitution | Synthese client/recruteur, portfolio | README/synthese | Resultats et recommandations reutilisables |
 
+## Fil conducteur operationnel (dashboard)
+
+1. Qualite des donnees (Pandera et controles amont).
+2. Detection des risques business (Isolation Forest).
+3. Explication des alertes (SHAP).
+4. Priorisation de second niveau (K-Means/kNN).
+5. Decision CODIR (top produits, exports actionnables).
+
 ## Backlog priorise
 
 | ID | Tache | Priorite | Estimation | Dependances | Statut |
@@ -27,17 +35,23 @@
 | T06b | Implementer Data Contracts (7 expectations GE formels) | Haute | 1 h | T06 | [x] |
 | T07 | Verifier les chemins et la reproductibilite | Moyenne | 1 h | T05, T06 | [x] |
 | T08 | Produire une synthese finale recruteur/client | Moyenne | 1 h | T06 | [x] |
-| T09 | Preparer les preuves pour le portfolio | Moyenne | 1 h | T08 | [~] |
+| T09 | Preparer les preuves pour le portfolio | Moyenne | 1 h | T08 | [x] |
 | T10 | Documenter les ameliorations du notebook | Moyenne | 1 h 30 | T05 | [x] |
 | T11 | Renommer notebook et mettre a jour tous les fichiers de ref | Haute | 30 min | T10 | [x] |
 | T12 | Nettoyer le depot GitHub avant publication + setup Aikido/security scanning | Haute | 2 h | T11 | [~] |
+| T13 | Mettre a jour la veille avec IF/SHAP/K-Means/kNN | Haute | 45 min | T03, T06 | [x] |
+| T14 | Centrer le journal IA sur le comptage de prompts BC05 | Haute | 30 min | T04 | [x] |
+| T15 | Formaliser la priorisation dashboard (IF+SHAP socle, K-Means/kNN complement) | Haute | 45 min | T13, T14 | [x] |
+| T16 | Mettre a jour la matrice d'indicateurs selon objectif anomalies dashboard | Haute | 45 min | T15 | [x] |
+| T17 | Aligner la documentation plan/projet avec jalons sans duree fixe | Moyenne | 30 min | T16 | [x] |
+| T18 | Synchroniser les taches dans GitHub Projects | Moyenne | 20 min | T13-T17 | [~] |
 
 ## Kanban de suivi
 
 | A faire | En cours | Termine |
 |---|---|---|
-| T09 - Preparer les preuves pour le portfolio | T12 - Nettoyer le depot GitHub avant publication + setup Aikido/security scanning | T01 - Rediger le besoin metier reformule |
-| T12 - Nettoyer le depot GitHub avant publication + setup Aikido/security scanning |  | T02 - Creer le cahier des charges initial |
+|  | T12 - Nettoyer le depot GitHub avant publication + setup Aikido/security scanning | T01 - Rediger le besoin metier reformule |
+|  | T18 - Synchroniser les taches dans GitHub Projects | T02 - Creer le cahier des charges initial |
 |  |  | T03 - Construire le tableau de veille |
 |  |  | T04 - Documenter 2 essais IA minimum |
 |  |  | T05 - Auditer le notebook P6 existant |
@@ -45,8 +59,14 @@
 |  |  | T06b - Implementer Data Contracts (7 expectations GE formels) |
 |  |  | T07 - Verifier les chemins et la reproductibilite |
 |  |  | T08 - Produire une synthese finale recruteur/client |
+|  |  | T09 - Preparer les preuves pour le portfolio |
 |  |  | T10 - Documenter les ameliorations du notebook |
 |  |  | T11 - Renommer notebook et mettre a jour tous les fichiers de ref |
+|  |  | T13 - Mettre a jour la veille avec IF/SHAP/K-Means/kNN |
+|  |  | T14 - Centrer le journal IA sur le comptage de prompts BC05 |
+|  |  | T15 - Formaliser la priorisation dashboard |
+|  |  | T16 - Mettre a jour la matrice d'indicateurs |
+|  |  | T17 - Aligner le plan avec jalons sans duree fixe |
 
 ### Variante compatible GitHub
 
@@ -55,6 +75,26 @@ Ce kanban est volontairement en Markdown pour etre lisible directement dans GitH
 Une vue GitHub Projects complete ce suivi pour la preuve visuelle portfolio : https://github.com/users/ferialzamoun-afk/projects/2/views/3?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Linked+pull+requests%22%2C%22Sub-issues+progress%22%2C366231487%2C366231820%5D
 
 Capture locale associee : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
+
+### Lien direct GitHub Project et taches ajoutees
+
+- Lien board principal: https://github.com/users/ferialzamoun-afk/projects/2/views/1
+- Lien vue suivi portfolio: https://github.com/users/ferialzamoun-afk/projects/2/views/3
+
+Point de synchro board (controle pre-commit, 2026-07-18):
+
+- T09 visible en "Termine" dans le board.
+- T12 visible en "A faire/En cours" selon la carte legacy et le lot en cours.
+- T18 toujours en cours de synchronisation (mise a jour fine des statuts necessite une session GitHub authentifiee).
+
+Taches ajoutees dans ce cycle:
+
+- T13 - Mise a jour veille IF/SHAP/K-Means/kNN
+- T14 - Focus comptage prompts BC05 dans le journal IA
+- T15 - Arbitrage methodes dashboard formalise
+- T16 - Matrice d'indicateurs alignee objectif anomalies
+- T17 - Planning converti en jalons sans duree fixe
+- T18 - Synchronisation GitHub Projects (en cours)
 
 ## Documentation a conserver
 
@@ -73,14 +113,16 @@ Capture locale associee : `P6_ameliore_IA/output/github_project_kanban_en_cours.
 
 La documentation utilisateur doit etre ajoutee si elle aide a comprendre ou reutiliser le projet : notice d'execution, interpretation des KPI, limites, recommandations et captures finales. Les brouillons, exports intermediaires non commentes et documents redondants peuvent rester hors du dossier final ou etre places en annexe.
 
-## Planning 4 jours
+Mode d'emploi utilisateur du dashboard (lecture metier et usage operationnel): `P6-Dashboard/docs/GUIDE_UTILISATEUR_DASHBOARD.md`.
 
-| Jour | Objectif | Actions | Livrables | Status |
+## Planning par jalons (sans duree fixe)
+
+| Jalon | Objectif | Actions | Livrables | Status |
 |---|---|---|---|---|
 | J1 | Cadrer et lancer | Cahier des charges, veille, journal IA, plan projet | Docs de pilotage initiales | [x] |
-| J2 | Auditer et ameliorer le notebook | Identifier controles manquants, clarifier le code, ajouter Data Contracts (7 expectations GE formels) | Notebook P6 ameliore (47 cellules) + M05b Data Contracts | [x] |
-| J3 | Valider et documenter | Execution complete, verification resultats, KPI finaux, 13 dataviz, renommage bottleneck_analyse_ameliore_final.ipynb | Synthese enrichie avant/apres, preuves | [x] |
-| J4 | Finaliser la restitution | Mettre a jour synthese et docs, preparer publication GitHub, portfolio | Dossier publiable, checklist publication | [~] |
+| J2 | Fiabiliser et detecter | Controles qualite, Data Contracts, Isolation Forest | Notebook ameliore + alertes anomalies | [x] |
+| J3 | Expliquer et prioriser | SHAP, segmentation K-Means/kNN, exports dashboard | Dataviz et listes actionnables | [x] |
+| J4 | Restituer et publier | Mise a jour docs, synchronisation GitHub Project, preuves portfolio | Dossier publiable, checklist publication | [~] |
 
 ## Registre des risques
 
@@ -99,7 +141,7 @@ La documentation utilisateur doit etre ajoutee si elle aide a comprendre ou reut
 
 | Moment | Controle | Preuve |
 |---|---|---|
-| Fin J1 | Documents de cadrage crees | Fichiers docs et matrice mise a jour |
-| Fin J2 | Notebook audite et controles ajoutes | Cellules controles qualite, resultats |
-| Fin J3 | Resultats verifies | Notes de validation, execution notebook |
-| Fin J4 | Restitution prete | README, captures, synthese finale |
+| Jalon 1 | Documents de cadrage crees | Fichiers docs et matrice mise a jour |
+| Jalon 2 | Detection anomalies operationnelle | Isolation Forest + controles qualite executes |
+| Jalon 3 | Explicabilite et priorisation valides | SHAP + K-Means/kNN + exports |
+| Jalon 4 | Restitution prete | README, captures, synthese finale, GitHub Project |

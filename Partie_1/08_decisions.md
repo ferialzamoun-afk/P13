@@ -12,6 +12,14 @@ Tracer les arbitrages principaux pris pendant l'amelioration du projet P6, en se
 - Formaliser la traçabilite IA dans un journal dedie.
 - Prioriser lisibilite, preuves et publication publique avant extension technique supplementaire.
 
+## Decisions BC05 - Seuils retenus a ce stade
+
+- Relever le seuil de marge faible a < 25% pour mieux couvrir le risque business.
+- Definir une criticite rupture sur stock nul avec demande >= 3 ventes.
+- Definir une criticite impact via la combinaison 3 alertes statistiques + CA >= 400 EUR.
+- Conserver Isolation Forest en priorite elevee avec audit metier systematique.
+- Exiger une restitution decisionnelle explicite en dashboard : motif, action, responsable, delai.
+
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/03_journal_ia_P13_partie_1.md`

@@ -12,6 +12,13 @@ Documenter les options techniques et les usages metier utiles pour transformer l
 - Piste moyen terme : formaliser des Data Contracts et une migration vers Great Expectations v19+.
 - Enjeu metier : fiabiliser les KPI Bottleneck et rendre les decisions plus auditables.
 
+## Mise a jour BC05 - Seuils de priorisation metier
+
+- Marge faible : seuil releve a < 25% pour mieux capter les cas de rentabilite fragile.
+- Cas critique stock : rupture avec demande des 3 ventes et plus.
+- Cas critique impact business : au moins 3 alertes statistiques et impact CA de 400 EUR et plus.
+- Les cas Isolation Forest restent priorises en niveau eleve, avec audit metier recommande.
+
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/02_veille_technologique_P13_partie_1.md`

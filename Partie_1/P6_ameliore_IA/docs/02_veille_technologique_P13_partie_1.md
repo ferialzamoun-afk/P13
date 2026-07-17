@@ -5,6 +5,14 @@
 Identifier des outils et methodes utiles pour ameliorer le notebook Bottleneck, renforcer la qualite des donnees, securiser la publication du projet et rendre le livrable plus reproductible.
 
 Date de lancement : 2026-07-07.
+Derniere mise a jour : 2026-07-17.
+
+## Storytelling cible (dashboard)
+
+- Detecter: controles qualite + anomalies critiques.
+- Expliquer: SHAP pour rendre l'alerte actionnable.
+- Prioriser: K-Means/kNN pour organiser le backlog d'investigation.
+- Decider: exports produits pour arbitrage CODIR.
 
 ## Criteres de comparaison
 
@@ -22,6 +30,9 @@ Date de lancement : 2026-07-07.
 | Solution | Usage possible | Points forts | Limites | Sobriete | Decision |
 |---|---|---|---|---|---|
 | Controles Pandas | Verifier valeurs manquantes, doublons, types, cles de jointure, bornes de prix | Deja disponible dans le notebook, rapide, transparent | Demande de coder les controles manuellement | Bonne : pas de dependance supplementaire | Retenu en priorite |
+| Isolation Forest (scikit-learn) | Detection multivariee des anomalies produits (prix, marge, stock, CA/article) | Efficace sans labels, parametrable (contamination), interpretable avec pipeline clair | Sensible au choix des variables et a la standardisation | Bonne : deja dans stack sklearn | Retenu comme moteur principal de detection |
+| SHAP | Explicabilite locale/globale des alertes Isolation Forest | Rend les alertes actionnables pour le CODIR, visualisation claire des contributions | Cout de calcul selon volume, besoin de mise en forme pedagogique | Moyenne : dependance supplementaire | Retenu en priorite avec IF |
+| K-Means + kNN | Segmentation et score de rarete locale pour prioriser les investigations | Complete IF/SHAP pour ordonner le backlog | Ne remplace pas une detection primaire de risque | Bonne : sklearn natif | Retenu en second niveau |
 | Great Expectations | Formaliser des tests de qualite data reutilisables | Cadre robuste, documentation claire, tests declaratifs | Mise en place plus lourde pour un notebook court | Moyenne : dependance et configuration ajoutees | A garder comme piste moyen terme |
 | Ruff + nbQA | Controler style Python et qualite du code notebook | Ameliore lisibilite et maintenance | Peut necessiter adaptation du notebook existant | Bonne : execution ponctuelle | Retenu si temps disponible |
 | ydata-profiling | Generer un rapport exploratoire automatique | Utile pour repérer rapidement distributions et valeurs atypiques | Rapport parfois lourd, moins cible metier | Moyenne a faible selon volume | Non prioritaire |
@@ -35,6 +46,9 @@ Date de lancement : 2026-07-07.
 | Outil | Besoin immédiat | Mise en œuvre | Technologie |
 |---|---|---|---|
 | Pandas | ✅ Oui | Phase I + II | Contrôles 18 points (doublons, manquants, clés) |
+| Isolation Forest | ✅ Oui | Phase II | Detection anomalies multivariees |
+| SHAP | ✅ Oui | Phase II | Explicabilite des alertes IF |
+| K-Means/kNN | ✅ Oui | Phase II (complement) | Segmentation + rarete locale |
 | Ruff/nbQA | ⚠️ Si temps | Phase III | Qualité code avant publication |
 | Aikido Security | ✅ Workflow prêt, activation via secret GitHub | Phase IV | Scan sécurité GitHub |
 | Great Expectations | ❌ Non prioritaire | Futur | Trop lourd pour 1 notebook |
@@ -76,15 +90,38 @@ Date de lancement : 2026-07-07.
 
 ### Phase immédiate (Semaine 1-2)
 1. ✅ **Contrôles Pandas** : 18 points validation déjà implémentés
-2. ✅ **Great Expectations** : Implémentation légère Phase I (5-6 expectations clés) → **NOUVEAU**
-3. ✅ **Ruff/nbQA** : Script optionnel pour qualité code
-4. ✅ **Aikido** : Workflow GitHub ajouté, activation finale via `AIKIDO_CLIENT_API_KEY`
+2. ✅ **Isolation Forest** : Détection principale des anomalies business
+3. ✅ **SHAP** : Explication des alertes pour arbitrage CODIR
+4. ✅ **K-Means/kNN** : Priorisation complémentaire des investigations
+5. ✅ **Great Expectations** : Implémentation légère Phase I (5-6 expectations clés)
+6. ✅ **Ruff/nbQA** : Script optionnel pour qualité code
+7. ✅ **Aikido** : Workflow GitHub ajouté, activation finale via `AIKIDO_CLIENT_API_KEY`
+
+### Arbitrage methodes pour la decision
+
+- **Court terme (decision immediate)** : Isolation Forest + SHAP en priorite.
+- **Moyen terme (priorisation fine)** : K-Means/kNN en complement, pas en remplacement.
 
 ### Justification implémentation Data Contracts
 - **Court terme** : Pragmatique via pandas assertions (pas d'API complexity GE v19+)
 - **Moyen terme** : Fondation prête pour migration GE YAML + Airflow (Q1-Q2 2027)
 - **Portfolio** : Démontre compétence data quality engineering ET pragmatisme ingénierie
 - **Effort réel** : 45 min pour 7 expectations formels avec anomaly detection (4/7 passent, 3 anomalies reelles detectees)
+
+## Articulation Pandera et Great Expectations
+
+Objectif: eviter le doublon et relier les controles de qualite a la decision metier.
+
+| Niveau | Outil | Role principal | Moment d'execution | Effet metier |
+|---|---|---|---|---|
+| Controle amont | Pandera | Valider schema, types et regles critiques sur DataFrame | Avant scoring et analyses BC05 | Bloquer tot les erreurs de donnees |
+| Controle aval | Great Expectations | Contractualiser et tracer les expectations de publication | Avant export/pipeline | Bloquer la diffusion d'un lot non conforme |
+
+Regle de fonctionnement retenue:
+
+- Si Pandera echoue: arret du flux analytique et correction data.
+- Si Pandera passe mais GE echoue: analyse possible en interne, publication bloquee jusqu'a correction.
+- Les regles critiques partagent un identifiant unique (ex. Q001 unicite product_id, Q002 price > 0, Q003 stock >= 0) pour garder une trace commune entre notebook et pipeline.
 
 ## Sources a verifier et conserver
 
@@ -96,6 +133,8 @@ Date de lancement : 2026-07-07.
 | Documentation nbQA | Documentation | Lint notebooks Jupyter | 2026-07-07 |
 | Documentation Aikido Security | Documentation | Scan securite depot | 2026-07-07 |
 | GitHub Docs | Documentation | Publication, README, alertes securite | 2026-07-07 |
+| Documentation scikit-learn (Isolation Forest) | Documentation | Parametrage modele et bonnes pratiques | 2026-07-17 |
+| Documentation SHAP | Documentation | Interpretablite et summary plot | 2026-07-17 |
 
 ## Mise en place retenue pour T12
 

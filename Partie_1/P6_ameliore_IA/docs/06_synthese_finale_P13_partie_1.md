@@ -10,7 +10,20 @@ Resultat obtenu : un livrable Bottleneck plus lisible, plus reproductible et mie
 
 La restructuration du notebook n'est pas l'objectif du projet : elle est un moyen utilise pour ameliorer la qualite du livrable final, la tracabilite des corrections et la lisibilite des analyses.
 
+Conclusion transitoire de decision operationnelle:
+
+- Court terme: corriger en priorite les marges negatives et les incoherences prix achat/vente detectees.
+- Court terme: justifier les alertes critiques avec SHAP pour une lecture CODIR immediate.
+- Moyen terme: utiliser K-Means/kNN pour ordonner le backlog d'investigation (segmentation et rarete locale).
+
+Politique d'usage des modeles:
+
+- **Socle de decision**: Isolation Forest + SHAP + controles qualite.
+- **Renfort de priorisation**: K-Means/kNN (en complement, pas en remplacement).
+
 ## 2. Notice d'execution
+
+Mode d'emploi utilisateur du dashboard (usage metier, filtres, priorisation et exports): `P6-Dashboard/docs/GUIDE_UTILISATEUR_DASHBOARD.md`.
 
 ### Prerequis
 
@@ -79,13 +92,18 @@ La restructuration du notebook n'est pas l'objectif du projet : elle est un moye
 
 Le nombre de prompts utilises est documente pour garder une trace critique de l'aide IA. Le comptage ne prouve pas la qualite du livrable a lui seul : chaque resultat doit etre relu, adapte au contexte Bottleneck et valide par une preuve concrete.
 
+Focus cible dashboard anomalies (BC05):
+
+- 13 prompts lies directement a l'objectif detecter -> expliquer -> prioriser -> decider.
+- Detail et ventilation disponibles dans `03_journal_ia_P13_partie_1.md`.
+
 | Etape cle terminee ou materialisee | Nombre de prompts documentes | Preuve associee | Limite a retenir |
 |---|---:|---|---|
 | Besoin metier reformule | 1 | `01_cahier_des_charges_P13_partie_1.md` | Reformulation a verifier avec les donnees disponibles |
 | Livrables de cadrage structures | 1 | Docs `01` a `05` | Structure IA a adapter aux attentes P13 |
 | Kanban et pilotage GitHub Projects | 2 | `04_plan_projet_P13_partie_1.md` + capture kanban | Ne pas confondre outil de suivi et avancement reel |
 | README et synthese finale | 2 | `README.md` + cette synthese | Risque de formulation trop generique |
-| Audit notebook et metriques avant/apres | 2 | `08_audit_notebook_P6_initial.md` + CSV metriques | Ne pas declarer d'amelioration sans preuve mesuree |
+| Diagnostic initial et metriques avant/apres | 2 | Tableau comparatif de cette synthese + CSV metriques | Ne pas declarer d'amelioration sans preuve mesuree |
 | Checklist d'amelioration notebook | 1 | `09_checklist_refactoring_notebook.md` | La checklist doit etre executee pas a pas |
 | R02 - Verification des chemins de donnees | 1 | Notebook ameliore + test local | Validation partielle : acces donnees OK, execution complete a verifier |
 | R06 - Wording titre et objectif notebook | 2 / 3 max | Notebook ameliore | Budget wording limite : titre et objectif metier corriges, Mission/sommaire/phases encore a integrer |
@@ -125,8 +143,6 @@ Budget specifique R06 wording : 3 prompts maximum, dont 2 deja utilises.
 
 L'objectif P13 n'est pas de produire un exercice de refactoring, mais d'ameliorer un projet existant. Les changements techniques sont donc presentes comme des leviers au service de la mission Bottleneck : qualite des donnees, analyses CODIR, reproductibilite et recommandations.
 
-Audit source : `P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md`.
-
 | Axe | Avant | Apres obtenu | Preuve | Statut |
 |---|---|---|---|---|
 | Structure du notebook | Cellules longues ou redondantes | Sections orientees mission : chargement, qualite, nettoyage, rapprochement, EDA, KPI, recommandations | Notebook ameliore final | [x] |
@@ -136,6 +152,20 @@ Audit source : `P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md`.
 | Rapprochement des sources | Risque de perte silencieuse | Perimetre ERP conserve, correspondance web documentee | Rapport M06 | [x] |
 | Analyses metier | Analyses longues et dispersees | KPI, Pareto, anomalies et dataviz consolides | Cellule M08 + exports HTML | [x] |
 | Reproductibilite | Execution dependante du contexte local | Execution M03 a M08 validee, temps mesure | Notebook execute | [x] |
+
+### 5.1.b Ameliorations IA recentes (cycle dashboard)
+
+Les dernieres avancees IA ont ete focalisees sur la lecture metier et la decision operationnelle, sans augmenter inutilement la complexite technique.
+
+| Axe IA | Avant | Apres (dernieres avancees) | Preuve | Statut |
+|---|---|---|---|---|
+| Lecture metier des alertes | Lecture surtout technique des sorties | Lecture metier automatique des cas critiques (causes dominantes + action prioritaire) | Dashboard decisionnel | [x] |
+| Justification du scoring | Score composite peu justifie en langage metier | Justification metier explicite des poids du scoring et du role de chaque composant | Onglet Methodologie + Decisionnel | [x] |
+| Categorie A surveiller | Statut intermediaire peu explicite | Regles de suivi clarifiees (controle hebdomadaire, prevention escalation) | Onglet Decisionnel | [x] |
+| Gouvernance qualite | Pandera documente, articulation inegale avec GE | Articulation formalisee: Pandera amont / Great Expectations aval avec regles de blocage | Docs veille/tests/matrice | [x] |
+| Accessibilite utilisateur | Guide notebook present, guide dashboard absent | Mode d'emploi utilisateur dashboard redige et relie dans P6-Dashboard, P13 et portfolio public | Guides et liens publics | [x] |
+
+Transparence metriques: pas de recalcul ici. Les valeurs de reference restent celles deja documentees dans la section `### Comparaison avant / apres du notebook` puis `#### Metriques de structure`.
 
 ### Positionnement portfolio
 
@@ -157,6 +187,10 @@ Le depot P6 peut rester prive tant que son contenu n'est pas presentable. La ver
 ### Suivi GitHub Projects
 
 Lien de la vue board : https://github.com/users/ferialzamoun-afk/projects/2/views/3?visibleFields=%5B%22Title%22%2C%22Assignees%22%2C%22Status%22%2C%22Linked+pull+requests%22%2C%22Sub-issues+progress%22%2C366231487%2C366231820%5D
+
+Lien direct kanban : https://github.com/users/ferialzamoun-afk/projects/2/views/1
+
+Taches ajoutees pour le cycle dashboard anomalies : T13 a T18 (veille IF/SHAP/K-Means/kNN, focus prompts BC05, arbitrage methodes, mise a jour matrice, jalons sans duree fixe, synchronisation board).
 
 Capture locale : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
 
@@ -191,18 +225,24 @@ Capture locale : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
 | Choix acceptes | Elements IA repris dans les livrables | `03_journal_ia_P13_partie_1.md` | [x] |
 | Choix ecartes | Suggestions rejetees ou reportees | `03_journal_ia_P13_partie_1.md` | [x] |
 | Comparaison avant/apres | Difference entre P6 initial et notebook ameliore final | Voir tableau ci-dessous | [x] |
-| Audit initial | Diagnostic du notebook avant amelioration | `08_audit_notebook_P6_initial.md` | [x] |
+| Diagnostic initial | Diagnostic avant amelioration (consolide dans cette synthese) | Tableau comparatif ci-dessous + CSV metriques | [x] |
 | Limites de l'IA | Points necessitant validation humaine | Cette synthese | [~] |
+| Lecture metier dashboard | Interpretation orientee decision des alertes critiques | `P6-Dashboard/streamlit_app.py` | [x] |
+| Justification scoring metier | Explication des poids et seuils de priorisation | `P6-Dashboard/streamlit_app.py` | [x] |
+| Articulation Pandera/GE | Complementarite amont/aval + blocage qualite | `02_veille_technologique_P13_partie_1.md` et docs portfolio | [x] |
+| Mode d'emploi dashboard | Guide utilisateur operationnel public et interne | `P6-Dashboard/docs/GUIDE_UTILISATEUR_DASHBOARD.md` + `09_mode_emploi_dashboard.md` | [x] |
 
 ### Comparaison avant / apres du notebook
+
+Verification locale (2026-07-18) sur `notebooks/bottleneck_analyse_ameliore_final.ipynb` : 65 cellules au total (28 code, 37 markdown).
 
 #### Metriques de structure
 
 | Metrique | P6 initial | Notebook ameliore final | Amelioration |
 |---|---:|---:|---|
-| Cellules totales | 148 | 47 | -68% (recentrage mission) |
-| Cellules de code | 105 | 39 | -63% (consolidation + scripts) |
-| Cellules Markdown | 43 | 8 | -81% (narration compacte) |
+| Cellules totales | 148 | 65 | -56% (recentrage mission) |
+| Cellules de code | 105 | 28 | -73% (consolidation + scripts) |
+| Cellules Markdown | 43 | 37 | -14% (narration enrichie) |
 | Cellules avec erreurs/stderr | 1 | 0 | 100% cleanup |
 | Temps execution complet | ~5 min | 1 min 11 sec | -76% (optimisation) |
 
@@ -223,7 +263,7 @@ Capture locale : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
 
 #### Observations clés
 
-1. **Réduction volume** : Notebook recentré sur la mission (47 cellules vs 148), mais avec meilleures garanties de qualité
+1. **Réduction volume** : Notebook recentré sur la mission (65 cellules vs 148), mais avec meilleures garanties de qualité
 2. **Nouvelle couche qualité** : Data Contracts + checkpoints = pipeline-ready
 3. **Scripts réutilisables** : Modularisation Python permet évolution vers Airflow/Prefect sans code duplication
 4. **Portfolio value** : Transformation visible : audit → amélioration → nouvelle structure + contrôles formels
@@ -255,23 +295,23 @@ Ce livrable montre ma capacite a reprendre un projet data existant, a l'auditer,
 
 ### 🔴 CRITIQUE - Avant publication (3-4h max)
 
-| # | Etape | Description | Preuve | Deadline |
-|---|---|---|---|---|
-| 1 | Produire capture qualité report | Screenshot du tableau `quality_report` (18 contrôles) depuis notebook exécuté | `output/captures/02_quality_report.png` | Juillet 13 |
-| 2 | Produire capture KPI dashboard | Screenshot des KPI principaux (CA, produits, anomalies) | `output/captures/03_kpi_dashboard.png` | Juillet 13 |
-| 3 | Créer LICENSE | Ajouter `LICENSE` (MIT ou CC-BY-4.0) à la racine du dépôt | GitHub repo + fichier local | Juillet 13 |
-| 4 | Rédiger README.md public | Portfolio-ready : titre, contexte, résultats clés, structure, quickstart, IA critique | `README.md` final | Juillet 13-14 |
-| 5 | Commit final + push | Ajouter captures, LICENSE, README révisé et committer | `dcf7050...<new>` | Juillet 14 |
+| # | Etape | Description | Preuve |
+|---|---|---|---|
+| 1 | Produire capture qualité report | Screenshot du tableau `quality_report` (18 contrôles) depuis notebook exécuté | `output/captures/02_quality_report.png` |
+| 2 | Produire capture KPI dashboard | Screenshot des KPI principaux (CA, produits, anomalies) | `output/captures/03_kpi_dashboard.png` |
+| 3 | Créer LICENSE | Ajouter `LICENSE` (MIT ou CC-BY-4.0) à la racine du dépôt | GitHub repo + fichier local |
+| 4 | Rédiger README.md public | Portfolio-ready : titre, contexte, résultats clés, structure, quickstart, IA critique | `README.md` final |
+| 5 | Commit final + push | Ajouter captures, LICENSE, README révisé et committer | `dcf7050...<new>` |
 
 ### 🟠 HAUTE - Idéalement avant publication (2-3h)
 
-| # | Etape | Description | Preuve | Deadline |
-|---|---|---|---|---|
-| 6 | Produire capture Pareto | Screenshot graphique Pareto CA (top 435 produits = 80%) | `output/captures/04_pareto_ca.png` | Juillet 14 |
-| 7 | Produire capture avant/après notebook | Comparaison metriques : 148 → 47 cells (-68%), 5 min → 1:11 (-76%) | `output/captures/05_before_after.png` | Juillet 14 |
-| 8 | Produire capture README portfolio | Screenshot du README.md rendu en HTML/Markdown | `output/captures/06_readme_portfolio.png` | Juillet 14 |
-| 9 | Valider chemins relatifs | Vérifier que tous les chemins utilisent `../../../P6_initial/data/` (pas d'absolus) | `GUIDE_EXECUTION_NOTEBOOK.md` | Juillet 14 |
-| 10 | Archiver docs temporaires | Sauvegarder 08-12 .md hors repo public (optionnel) | Backup externe | Juillet 14 |
+| # | Etape | Description | Preuve |
+|---|---|---|---|
+| 6 | Produire capture Pareto | Screenshot graphique Pareto CA (top 435 produits = 80%) | `output/captures/04_pareto_ca.png` |
+| 7 | Produire capture avant/après notebook | Comparaison metriques : 148 → 65 cells (-56%), 5 min → 1:11 (-76%) | `output/captures/05_before_after.png` |
+| 8 | Produire capture README portfolio | Screenshot du README.md rendu en HTML/Markdown | `output/captures/06_readme_portfolio.png` |
+| 9 | Valider chemins relatifs | Vérifier que tous les chemins utilisent `../../../P6_initial/data/` (pas d'absolus) | `GUIDE_EXECUTION_NOTEBOOK.md` |
+| 10 | Archiver docs temporaires | Sauvegarder 08-12 .md hors repo public (optionnel) | Backup externe |
 
 ### Après publication (Optionnel)
 
@@ -302,7 +342,7 @@ Ce livrable montre ma capacite a reprendre un projet data existant, a l'auditer,
 
 ### Checklist validation avant publication
 
-- [ ] Notebook s'exécute entièrement sans erreur (47 cellules)
+- [ ] Notebook s'exécute entièrement sans erreur (65 cellules)
 - [ ] Data Contracts : 7 expectations documentées, 3 échouées analysées
 - [ ] Prérequis M00 vérifiés : Python 3.12.2, packages, fichiers présents
 - [ ] Checkpoints Phase I & II passent avec rapport d'exécution complet

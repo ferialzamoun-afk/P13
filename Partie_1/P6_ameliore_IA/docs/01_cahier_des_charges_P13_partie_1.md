@@ -12,6 +12,20 @@ Bottleneck a besoin de fiabiliser son analyse des ventes et des stocks afin d'ob
 
 Le projet doit donc transformer le notebook existant en livrable plus robuste, documente et reproductible, en integrant des controles qualite data, des justifications techniques et une trace critique de l'utilisation de l'IA.
 
+## 2.b Storytelling dashboard (fil directeur)
+
+La restitution metier suit une chaine unique:
+
+1. Detecter les cas a risque (qualite + anomalies multivariees).
+2. Expliquer pourquoi ils sont signales (SHAP).
+3. Prioriser les actions (risque immediate puis rarete locale).
+4. Decider en CODIR (liste de produits a corriger et plan de suivi).
+
+Arbitrage methodes pour la decision:
+
+- Socle court terme: Pandera + Isolation Forest + SHAP.
+- Renfort moyen terme: K-Means/kNN pour la priorisation avancee.
+
 ## 3. Objectifs
 
 | Objectif | Resultat attendu | Indicateur de validation |
@@ -78,3 +92,19 @@ Le projet doit donc transformer le notebook existant en livrable plus robuste, d
 - Les essais IA sont utiles, traces et relus humainement.
 - Les limites de l'analyse sont explicites.
 - Les livrables peuvent etre repris dans le portfolio P13.
+
+## 9. Suivi des taches (passe pre-commit/push)
+
+Etat synchronise avec la documentation projet et le board GitHub Projects (controle du 2026-07-18):
+
+| Tache | Description | Statut |
+|---|---|---|
+| T09 | Preparer les preuves pour le portfolio | [x] |
+| T12 | Nettoyer le depot GitHub + setup security scanning | [~] |
+| T18 | Synchroniser les taches dans GitHub Projects | [~] |
+
+Reste a finaliser avant publication:
+
+- Cloturer les cartes legacy encore en "A faire" dans le board GitHub.
+- Finaliser le lot securite (secret AIKIDO_CLIENT_API_KEY et premier scan).
+- Refaire une verification finale docs + liens publics juste avant commit/push.

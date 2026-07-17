@@ -11,6 +11,32 @@ Tracer les usages de l'IA pendant l'amelioration du projet Bottleneck : objectif
 - Les prompts ne doivent pas contenir de donnees sensibles.
 - Les suggestions sont acceptees seulement si elles ameliorent la clarte, la qualite ou la reproductibilite.
 
+## Regle d'arbitrage dashboard (ajoutee)
+
+- Priorite decision immediate: Pandera + Isolation Forest + SHAP.
+- K-Means/kNN utilises en second niveau pour prioriser les cas a investiguer.
+- Une proposition IA est retenue seulement si elle rend l'action metier plus claire (detecter, expliquer, prioriser, decider).
+
+## Focus prompts - objectif dashboard anomalies (BC05)
+
+Ce focus isole uniquement les prompts en rapport direct avec l'objectif de detection/explanation/priorisation des anomalies pour le dashboard.
+
+| Bloc BC05 | Sujet | Nombre de prompts lies | Statut |
+|---|---|---:|---|
+| 9.1 | Standardisation amont + robustesse rerun | 3 | Termine |
+| 9.2 | Isolation Forest simplifie + heatmap + scatter | 4 | Termine |
+| 9.2 | SHAP summary plot + interpretation metier | 2 | Termine |
+| 9.3a | K-Means (sous-section dediee) | 1 | Termine |
+| 9.3b | kNN (sous-section dediee) | 1 | Termine |
+| Documentation associee | Narration decisionnelle dashboard | 2 | Termine |
+
+**Total focus dashboard anomalies : 13 prompts**
+
+Lecture recommandee:
+
+- Ce total focus complete le comptage global historique.
+- Il sert de reference pour justifier l'effort IA sur l'objectif metier principal du dashboard.
+
 ## Essais documentes (synthese)
 
 | Essai | Objectif | Prompt utilise | Resultat obtenu | Decision humaine | Limites |

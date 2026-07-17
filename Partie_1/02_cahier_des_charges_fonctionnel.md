@@ -12,6 +12,13 @@ Poser le cadre du projet d'amelioration P6 : besoin metier, livrables attendus, 
 - Criteres de reussite : fiabilite des calculs, chemins reproductibles, preuves lisibles, limites explicites.
 - Contraintes : sobriete technique, traçabilite IA, publication GitHub exploitable.
 
+## Exigences fonctionnelles BC05 - Aide a la decision
+
+- Transformer les alertes statistiques en priorites metier actionnables.
+- Afficher pour chaque cas : priorite, motif, action recommandee, responsable et delai.
+- Seuils de reference : marge faible < 25%, rupture critique avec 3 ventes et plus, criticite renforcee si impact CA de 400 EUR et plus.
+- Maintenir une traçabilite exportable (plan d'actions CSV) pour pilotage equipe.
+
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/01_cahier_des_charges_P13_partie_1.md`

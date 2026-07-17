@@ -18,6 +18,13 @@ Fournir un support court pour aider un public non technique a lire les KPI, comp
 - Resultats visibles dans des tableaux et graphiques commentes.
 - Supports consultables en Markdown et notebook.
 
+## Mise a jour BC05 - Lecture metier des seuils
+
+- Priorite critique : prix invalide, rupture avec demande (3 ventes et plus), ou signal statistique fort avec impact CA.
+- Priorite elevee : atypie multivariee, multi-alertes, ou marge faible (< 25%).
+- Priorite moyenne : signaux moderes a suivre dans le cycle hebdomadaire.
+- Restitution attendue en dashboard : motif, action recommandee, responsable, delai.
+
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/01_cahier_des_charges_P13_partie_1.md`
