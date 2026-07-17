@@ -83,9 +83,18 @@ Capture locale associee : `P6_ameliore_IA/output/github_project_kanban_en_cours.
 
 Point de synchro board (controle pre-commit, 2026-07-18):
 
-- T09 visible en "Termine" dans le board.
-- T12 visible en "A faire/En cours" selon la carte legacy et le lot en cours.
-- T18 toujours en cours de synchronisation (mise a jour fine des statuts necessite une session GitHub authentifiee).
+- T12 visible en "A faire".
+- T11, T15, T17, T19 et T20 visibles en "En cours".
+- T18, T14, T06, T05, T07 et T10 visibles en "Termine".
+- T21 visible en "A faire".
+
+Etat board publication (vue portfolio 2026-07-18):
+
+| Colonne | Taches |
+|---|---|
+| A faire | T12, T21 |
+| En cours | T11, T15, T17, T19, T20 |
+| Termine | T18, T14, T06, T05, T07, T10 |
 
 Taches ajoutees dans ce cycle:
 
@@ -95,6 +104,9 @@ Taches ajoutees dans ce cycle:
 - T16 - Matrice d'indicateurs alignee objectif anomalies
 - T17 - Planning converti en jalons sans duree fixe
 - T18 - Synchronisation GitHub Projects (en cours)
+- T19 - Fixer les seuils metier BC05
+- T20 - Integrer la synthese BC05 dans le dashboard
+- T21 - Mettre a jour la tracabilite IA (decisions + impacts)
 
 ## Documentation a conserver
 

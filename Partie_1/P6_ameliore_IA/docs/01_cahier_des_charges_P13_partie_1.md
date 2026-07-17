@@ -100,11 +100,17 @@ Etat synchronise avec la documentation projet et le board GitHub Projects (contr
 | Tache | Description | Statut |
 |---|---|---|
 | T09 | Preparer les preuves pour le portfolio | [x] |
+| T11 | Nettoyer le depot GitHub avant publication | [~] |
 | T12 | Nettoyer le depot GitHub + setup security scanning | [~] |
+| T15 | Valider metier les alertes actionnables (top 20) | [~] |
+| T17 | Executer 9.3 renfort BC05 (K-Means + kNN) | [~] |
 | T18 | Synchroniser les taches dans GitHub Projects | [~] |
+| T19 | Fixer les seuils metier BC05 | [~] |
+| T20 | Integrer la synthese BC05 dans le dashboard | [~] |
+| T21 | Mettre a jour la tracabilite IA (decisions + impacts) | [ ] |
 
 Reste a finaliser avant publication:
 
-- Cloturer les cartes legacy encore en "A faire" dans le board GitHub.
+- Cloturer les cartes encore en "A faire" dans le board GitHub (T12, T21).
 - Finaliser le lot securite (secret AIKIDO_CLIENT_API_KEY et premier scan).
 - Refaire une verification finale docs + liens publics juste avant commit/push.
