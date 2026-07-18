@@ -9,7 +9,7 @@
 | # | Capture | Source | Dimensions | Destination |
 |---|---|---|---|---|
 | 1 | **Mission & Contexte** | Cell 1 (Mission) | 1024×600 | `captures/01_mission_p6_bottleneck.png` |
-| 2 | **Structure notebook** | VS Code outline (49 cells) | 1024×800 | `captures/02_notebook_structure_49cells.png` |
+| 2 | **Structure notebook** | VS Code outline (65 cellules courantes ; capture historique nommee 49cells) | 1024×800 | `captures/02_notebook_structure_49cells.png` |
 | 3 | **Checkpoint Phase I** | Cell M00 output | 1024×600 | `captures/03_quality_report_18controls.png` |
 | 4 | **Avant/Après metrics** | 06_synthese tableau avant/après | 1024×600 | `captures/04_before_after_metrics.png` |
 | 5 | **KPI Dashboard Phase II** | Cells Phase II output (CA, Pareto) | 1024×600 | `captures/05_kpi_dashboard_phase2.png` |
@@ -33,7 +33,7 @@
 ```
 1. VS Code : Ouvrir notebook
 2. Vue → Explorer → Outline (panneau gauche)
-3. Voir les 49 cells listés
+3. Voir les 65 cellules listées dans la version enrichie BC05
 4. Screenshot du panneau outline
 5. Sauver dans captures/02_notebook_structure_49cells.png
 ```

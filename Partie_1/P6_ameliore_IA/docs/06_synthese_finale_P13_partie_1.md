@@ -13,13 +13,14 @@ La restructuration du notebook n'est pas l'objectif du projet : elle est un moye
 Conclusion transitoire de decision operationnelle:
 
 - Court terme: corriger en priorite les marges negatives et les incoherences prix achat/vente detectees.
-- Court terme: justifier les alertes critiques avec SHAP pour une lecture CODIR immediate.
-- Moyen terme: utiliser K-Means/kNN pour ordonner le backlog d'investigation (segmentation et rarete locale).
+- Court terme: justifier les alertes critiques avec SHAP et l'impact business pour une lecture CODIR immediate.
+- Moyen terme: utiliser K-Means/kNN pour ordonner le backlog d'investigation (segmentation et rarete locale), sans declencher seuls une priorite critique.
 
 Politique d'usage des modeles:
 
 - **Socle de decision**: Isolation Forest + SHAP + controles qualite.
 - **Renfort de priorisation**: K-Means/kNN (en complement, pas en remplacement).
+- **Regle dashboard retenue**: `Critique = critical_score >= 0.65` (IF + SHAP + impact) ; `A surveiller = surveillance_score >= 0.45` (IF + kNN + K-Means + SHAP + impact).
 
 ## 2. Notice d'execution
 
@@ -63,6 +64,8 @@ Mode d'emploi utilisateur du dashboard (usage metier, filtres, priorisation et e
 | Les KPI principaux sont calcules | CA, stocks, ventes, anomalies | [x] |
 | Les graphiques s'affichent | Visualisations Plotly lisibles et exportees | [x] |
 | Le notebook s'execute dans l'ordre | Cellules M03 a M08 executees sans erreur bloquante | [x] |
+| Exports BC05 synchronises | Matrices et alertes disponibles dans notebook output et P6-Dashboard/data | [x] |
+| Dataviz BC05 centralisees | 12 visuels BC05 copies dans output/dataviz | [x] |
 
 ## 3. Interpretation des KPI
 
@@ -76,6 +79,17 @@ Mode d'emploi utilisateur du dashboard (usage metier, filtres, priorisation et e
 | Produits a prix invalide | Prix nul ou negatif | Sert a investiguer des erreurs de saisie potentielles | 3 produits a verifier |
 | Marges negatives | Prix de vente inferieur au prix d'achat | Identifie les references a valider metier | 7 produits a verifier |
 | Qualite des jointures | Lignes rapprochees ou non rapprochees | Mesure la fiabilite du croisement ERP/web | 714 produits avec correspondance web, 111 sans correspondance web active |
+
+### Resultats BC05 - Priorisation dashboard
+
+| Indicateur BC05 | Definition | Resultat |
+|---|---|---|
+| Alertes immediates | Z-score/IQR sur variables standardisees | 36 alertes, 4.36% |
+| Isolation Forest | Alertes multivariees exportees | 25 alertes retenues |
+| kNN rarete locale | Produits au-dessus du 95e percentile de distance au voisinage | 42 alertes de surveillance |
+| Matrice stricte globale | 825 produits classes avec `critical_score` et `surveillance_score` | 1 critique, 172 a surveiller, 652 normaux |
+| Dashboard filtre courant | Matrice alignee sur `df_final.xlsx` filtre | 713 lignes : 1 critique, 152 a surveiller, 560 normaux |
+| Synchronisation exports | Notebook output vers P6-Dashboard/data | Matrices et alertes synchronisees |
 
 ## 4. Limites et biais
 
@@ -199,9 +213,9 @@ Capture locale : `P6_ameliore_IA/output/github_project_kanban_en_cours.png`.
 | # | Capture | Contenu | Fichier | Priorite | Statut |
 |---|---|---|---|---|---|
 | 1 | Mission Bottleneck context | Contexte, problème, mission P6 ameliore | `01_mission_p6_bottleneck.png` | MOYENNE | [x] |
-| 2 | Notebook structure | Vue d'ensemble: 50 cells, phases M00-M08 | `02_notebook_structure_49cells.png` | HAUTE | [x] |
+| 2 | Notebook structure | Vue d'ensemble: 65 cellules courantes, phases M00-BC05 | `02_notebook_structure_49cells.png` (nom historique) | HAUTE | [x] |
 | 3 | Quality report | Tableau `quality_report` - 18 contrôles (11 OK, 4 vérifier, 2 documenter, 1 corriger) | `03_quality_report_18controls.png` | CRITIQUE | [x] |
-| 4 | Before/After metrics | Comparaison : 148 → 50 cells (-67%), 5 min → 1:11 (-77%) | `04_before_after_metrics.png` | CRITIQUE | [x] |
+| 4 | Before/After metrics | Comparaison : 148 → 65 cells (-56%) avec enrichissement BC05, ~5 min → ~1:30 | `04_before_after_metrics.png` | CRITIQUE | [x] |
 | 5 | KPI dashboard Phase 2 | KPI synthèse : CA 143.7k EUR, 689 produits, 92 ruptures, 3 anomalies prix | `05_kpi_dashboard_phase2.png` | CRITIQUE | [x] |
 | 6 | Kanban GitHub Projects | Suivi projet : A faire / En cours / Termine avec 12 tasks | `06_kanban_github_projects.png` | MOYENNE | [x] |
 | 7 | Dataviz sample (Correlations) | Exemple graphique Plotly - Pareto ou corrélations | `07_dataviz_sample_correlations.png` | HAUTE | [x] |
@@ -308,7 +322,7 @@ Ce livrable montre ma capacite a reprendre un projet data existant, a l'auditer,
 | # | Etape | Description | Preuve |
 |---|---|---|---|
 | 6 | Produire capture Pareto | Screenshot graphique Pareto CA (top 435 produits = 80%) | `output/captures/04_pareto_ca.png` |
-| 7 | Produire capture avant/après notebook | Comparaison metriques : 148 → 65 cells (-56%), 5 min → 1:11 (-76%) | `output/captures/05_before_after.png` |
+| 7 | Produire capture avant/après notebook | Comparaison metriques : 148 → 65 cells (-56%), ~5 min → ~1:30 | `output/captures/05_before_after.png` |
 | 8 | Produire capture README portfolio | Screenshot du README.md rendu en HTML/Markdown | `output/captures/06_readme_portfolio.png` |
 | 9 | Valider chemins relatifs | Vérifier que tous les chemins utilisent `../../../P6_initial/data/` (pas d'absolus) | `GUIDE_EXECUTION_NOTEBOOK.md` |
 | 10 | Archiver docs temporaires | Sauvegarder 08-12 .md hors repo public (optionnel) | Backup externe |

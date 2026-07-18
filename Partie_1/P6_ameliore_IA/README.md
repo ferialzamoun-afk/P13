@@ -8,16 +8,18 @@ Document de livraison unique (version consolidee): docs/00_dossier_projet_unique
 
 ## 📊 En 30 secondes
 
-Ce projet transforme un notebook d'analyse exploratoire (148 cells) en livrable professionnel **reproductible, tracé et documenté** (49 cells, **-68% cells**, **-76% temps d'exécution**).
+Ce projet transforme un notebook d'analyse exploratoire (148 cellules) en livrable professionnel **reproductible, tracé, documenté et enrichi d'alertes métier BC05** (65 cellules, **-56% cellules**, exécution complète autour de **1 min 30**).
 
 **Résultats clés :**
-- 💰 **Chiffre d'affaires** : 143,680 EUR / mois (octobre 2026)
-- 📦 **Catalogue** : 689 produits avec CA, ~80% du CA porté par 435 produits (#Pareto)
+- 💰 **Chiffre d'affaires** : 143 680,10 EUR / mois (octobre 2026)
+- 📦 **Catalogue** : 825 lignes consolidées, 689 produits avec ventes, 80% du CA atteint au rang 435 (#Pareto)
 - 🚨 **Anomalies détectées** : 3 prix invalides, 7 marges négatives, 92 ruptures stock
-- 📈 **Dataviz** : 13 graphiques interactifs générés pour présentation CODIR
+- 🤖 **BC05 avancé** : 36 alertes statistiques immédiates (4,36%), 25 alertes Isolation Forest, 4 clusters K-Means, 42 alertes kNN
+- 🎯 **Matrice décisionnelle stricte** : 825 produits scorés dont 1 critique, 172 à surveiller et 652 normaux
+- 📈 **Dataviz** : 13 graphiques Phase II + visualisations BC05 générées pour présentation CODIR
 - ✅ **Reproductibilité** : 100% - chemins relatifs, prérequis vérifiés, RGPD compliant
 
-**Approche P13** : Pandans pragmatique (courts terme, J+30) avec **Data Contracts formalisés** en vue migration Future GE v19+ (moyen terme).
+**Approche P13** : Pandas pragmatique (court terme, J+30) avec **Data Contracts formalisés** en vue d'une migration future vers GE v19+ (moyen terme).
 
 ---
 
@@ -36,14 +38,15 @@ Partie 1/P6_ameliore_IA/
 ├── README.md (ce fichier)
 ├── requirements.txt
 ├── notebooks/
-│   └── bottleneck_analyse_ameliore_final.ipynb  [49 cells, ~1:11 min execution]
+│   ├── bottleneck_analyse_ameliore_final.ipynb  [65 cellules, ~1:30 min execution]
+│   └── output/                                  [exports BC05 bruts : CSV et graphiques générés]
 ├── src/                                         [5 modules Python]
 │   ├── quality_checks.py
 │   ├── stock_cleaning.py
 │   ├── data_merging.py
 │   ├── eda_analysis.py
 │   └── kpi_analysis.py
-├── docs/                                        [8 fichiers documenting P13]
+├── docs/                                        [8 fichiers de documentation P13]
 │   ├── 01_cahier_des_charges_P13_partie_1.md
 │   ├── 02_veille_technologique_P13_partie_1.md
 │   ├── 03_journal_ia_P13_partie_1.md
@@ -53,7 +56,7 @@ Partie 1/P6_ameliore_IA/
 │   ├── 07_checklist_publication_github.md
 │   └── 13_great_expectations_strategy.md
 └── output/
-    ├── dataviz/        [13 fichiers HTML Plotly]
+    ├── dataviz/        [13 graphiques Phase II + 12 visuels BC05]
     └── captures/       [6-8 screenshots portfolio]
 ```
 
@@ -89,9 +92,10 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 
 ### 4️⃣ Résultats générés
 - ✅ **Checkpoints** à chaque phase (M00, Phase I, Phase II, Final)
-- ✅ **13 graphiques Plotly** dans `output/dataviz/` (CA, Pareto, anomalies, stocks, corrélations)
+- ✅ **25 visuels dataviz** dans `output/dataviz/` : 13 graphiques Phase II + 12 visuels BC05
+- ✅ **Exports BC05 CSV** dans `notebooks/output/` (alertes, Isolation Forest, K-Means, kNN, matrice décisionnelle)
 - ✅ **Rapport de qualité** : 18 contrôles + 7 Data Contracts validés
-- ✅ **Temps total** : ~1 minute 11 secondes
+- ✅ **Temps total** : ~1 minute 30 secondes pour le notebook enrichi
 
 ---
 
@@ -153,7 +157,21 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 | **Stock / Rotation** | 2.98 mois avg | ⚠️ À optimiser (stockouts: 92 refs) |
 | **Anomalies** | 10 détectées | 🚨 À investiguer (3 prix, 7 marges) |
 
-### Dataviz générées (13 fichiers)
+### Renfort BC05 - Alertes actionnables et aide à la décision
+| Analyse | Résultat | Livrable / usage métier |
+|---|---:|---|
+| **Contrôle statistique immédiat** | 36 alertes / 825 lignes (**4,36%**) | `notebooks/output/bc05_alertes_actionnables.csv` pour revue métier priorisée |
+| **Isolation Forest** | 25 alertes multivariées retenues dans la synthèse notebook | Détecter les combinaisons atypiques prix / marge / stock / CA |
+| **SHAP** | Drivers principaux : prix, prix d'achat, taux de marge | Expliquer pourquoi un produit est signalé, pas seulement le flaguer |
+| **K-Means** | 4 clusters produits | Segmenter les profils commerciaux et logistiques |
+| **kNN** | 42 produits rares (seuil 95e percentile) | Repérer les références statistiquement isolées |
+| **Matrice décisionnelle stricte** | 1 critique, 172 à surveiller, 652 normaux | Critique = IF + SHAP + impact ; kNN/K-Means alimentent surtout la surveillance |
+
+**Top priorités identifiées** : produits premium ou champagnes avec rupture malgré demande, atypies fortes prix / prix d'achat, marges négatives à valider avant correction.
+
+### Dataviz générées
+
+**Phase II - Restitution CODIR (13 fichiers)**
 ```
 • ca_par_type_produit.png
 • ca_stock_par_type_produit.png
@@ -169,6 +187,22 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 • pareto_ca.png
 • correlations_quantitatives.png
 ```
+
+**BC05 - Alertes et modèles avancés**
+```
+• output/dataviz/bc05_synthese_alertes.html
+• output/dataviz/bc05_distribution_prix.html
+• output/dataviz/bc05_top_alertes.html
+• output/dataviz/bc05_iforest_scores.html
+• output/dataviz/bc05_iforest_boxplot.png
+• output/dataviz/bc05_iforest_scatter_anomalies.png
+• output/dataviz/bc05_iforest_corr_heatmap.png
+• output/dataviz/bc05_iforest_shap_summary.png
+• output/dataviz/bc05_kmeans_scatter.html / .png
+• output/dataviz/bc05_knn_scatter.html / .png
+```
+
+**BC05 - Exports CSV associés** : `notebooks/output/bc05_alertes_actionnables.csv`, `notebooks/output/bc05_iforest_alerts.csv`, `notebooks/output/bc05_kmeans_alerts.csv`, `notebooks/output/bc05_knn_alerts.csv`, `notebooks/output/bc05_matrice_decisionnelle.csv`, `notebooks/output/bc05_matrice_critique_surveillance.csv`.
 
 ---
 
@@ -192,15 +226,17 @@ jupyter notebook notebooks/bottleneck_analyse_ameliore_final.ipynb
 
 | Dimension | P6 initial | P6 amélioré | Gain |
 |---|---|---|---|
-| **Cellules notebook** | 148 | 49 | **-68%** |
-| **Temps exécution** | ~5 min | 1:11 min | **-76%** |
-| **Code cells** | 105 | 39 | -63% |
-| **Markdown cells** | 43 | 8 | -81% |
+| **Cellules notebook** | 148 | 65 | **-56%** malgré l'ajout BC05 |
+| **Temps exécution** | ~5 min | ~1:30 min | **~70% plus rapide** |
+| **Code cells** | 105 | 28 | -73% |
+| **Markdown cells** | 43 | 37 | Documentation renforcée |
 | **Erreurs/warnings** | 1 major | 0 | ✅ |
 | **Contrôles qualité** | Implicites | **18 explicites** | ✅ |
 | **Data Contracts** | 0 | **7 formalisés** | ✅ |
 | **Checkpoints** | 0 | **4 internes** | ✅ |
 | **Documentation IA** | 0 | **26 prompts tracés** | ✅ |
+| **Alertes BC05** | 0 | **36 alertes + matrice 825 produits** | ✅ |
+| **Modèles avancés** | 0 | **Isolation Forest, SHAP, K-Means, kNN** | ✅ |
 | **Reproductibilité** | Chemins locaux | Chemins relatifs | ✅ |
 
 ---

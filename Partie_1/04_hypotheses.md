@@ -4,6 +4,8 @@
 
 Rendre explicites les hypotheses de refonte du notebook P6 avant d'ajouter controles, refactoring et documentation.
 
+> **Note de synchronisation documentaire** : cette page est une synthese courte. La reference complete et a jour est `P6_ameliore_IA/docs/00_dossier_projet_unique_P13_partie_1.md`.
+
 ## Hypotheses retenues
 
 - Le notebook initial peut etre ameliore sans etre reconstruit entierement.
@@ -14,13 +16,14 @@ Rendre explicites les hypotheses de refonte du notebook P6 avant d'ajouter contr
 
 ## Hypotheses BC05 - Priorisation metier
 
-- Un seuil marge < 25% capte mieux les cas economiquement risqués qu'un seuil plus strict.
-- Une rupture avec au moins 3 ventes est un signal de perte business a traiter en priorite.
-- La combinaison multi-alertes + impact CA (>= 400 EUR) constitue un niveau de criticite defendable.
-- Les alertes Isolation Forest doivent declencher un audit fiche produit meme sans erreur evidente.
+- Un produit rare selon kNN ou eloigne de son cluster K-Means doit etre investigue, mais pas automatiquement classe critique.
+- La criticite immediate doit rester fondee sur IF + SHAP + impact business pour eviter la surpriorisation statistique.
+- Les alertes `A surveiller` constituent un backlog hebdomadaire d'investigation metier.
+- Les alertes `Critique` doivent rester une short-list actionnable et defendable en CODIR.
 
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/03_journal_ia_P13_partie_1.md`
+- `P6_ameliore_IA/docs/00_dossier_projet_unique_P13_partie_1.md`
 - `P6_ameliore_IA/docs/04_plan_projet_P13_partie_1.md`
 - `P6_ameliore_IA/docs/08_audit_notebook_P6_initial.md`

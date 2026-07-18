@@ -10,10 +10,10 @@
 
 ### Notebook principal : `bottleneck_analyse_ameliore_final.ipynb`
 - [x] Renommé correctement (final, pas refactored)
-- [x] **50 cells** (47 originales + 2 nouvelles P13 + 1 checkpoint final)
-  - [x] Cell 2bis : "Méthodologie & Traçabilité des choix" (8 paragraphes) - ✅ Exécuté
-  - [x] Cell 46bis : "Audit & Reproductibilité" (10 sections) - ✅ Exécuté
-- [x] Exécution complète VALIDÉE (~40 cells, ~2-3 min réelle)
+- [x] **65 cellules** (28 code, 37 markdown) dans la version enrichie BC05
+  - [x] Méthodologie & Traçabilité des choix - ✅ Exécuté
+  - [x] BC05 : IF, SHAP, matrice stricte, K-Means, kNN et synchronisation dataviz - ✅ Exécuté
+- [x] Exécution complète VALIDÉE (~1 min 30 version enrichie)
   - [x] Phase I : Chargement + Contrôles qualité (18 points) ✅
   - [x] Phase II : Rapprochement ERP/Web/Liaison (714 matches) ✅
   - [x] Phase III : EDA + KPI (CA 143.7k EUR, 689 produits vendus) ✅
@@ -67,10 +67,10 @@
 
 ### Data & Structure
 - [x] `P6_initial/data/` : erp.xlsx, web.xlsx, liaison.xlsx présents
-- [x] `output/dataviz/` : **13 fichiers HTML Plotly** générés (CA, Pareto, anomalies, stocks, corrélations)
+- [x] `output/dataviz/` : **13 graphiques Phase II + 12 visuels BC05** générés (CA, Pareto, anomalies, stocks, corrélations, IF, SHAP, K-Means, kNN)
 - [x] `output/captures/` : **9 screenshots portfolio créés et validés** ✅
   - [x] `01_mission_p6_bottleneck.png` (context slide)
-  - [x] `02_notebook_structure_49cells.png` (notebook overview - 50 cells actuellement)
+  - [x] `02_notebook_structure_49cells.png` (capture historique ; notebook courant : 65 cellules)
   - [x] `03_quality_report_18controls.png` (Phase I validation)
   - [x] `04_before_after_metrics.png` (68% cells, 76% time improvement)
   - [x] `05_kpi_dashboard_phase2.png` (CA 143k€, Pareto, anomalies)
@@ -143,8 +143,8 @@
 |---|---|---|
 | **Titre** | "Optimisation de la gestion des données - Bottleneck Wine Shop" | [ ] |
 | **Contexte** | Qui = PME Bottleneck, Quoi = ERP/Web data, Pourquoi = analyse CODIR | [ ] |
-| **Résultats clés** | CA 143k€, Pareto 80% = 435 produits, 3 anomalies détectées, 13 dataviz | [ ] |
-| **Améliorations** | P6 initial: 148 cells → améliore: 49 cells (-68%), temps 5min → 1:11 (-76%) | [ ] |
+| **Résultats clés** | CA 143k€, Pareto 80% = 435 produits, 3 anomalies détectées, 13 dataviz Phase II + 12 visuels BC05 | [ ] |
+| **Améliorations** | P6 initial: 148 cells → améliore: 65 cells (-56%) avec enrichissement BC05, temps ~1min30 | [ ] |
 | **Structure dépôt** | Tree clair (notebooks/, docs/, src/, data/, output/) | [ ] |
 | **Quickstart** | Python 3.12.2 → pip install -r requirements.txt → jupyter notebook | [ ] |
 | **Méthodologie** | Pandas + 18 contrôles + Data Contracts (voir docs/02_veille) | [ ] |
@@ -163,7 +163,7 @@
 - [ ] Notebook s'exécute de A à Z sans erreur
 - [ ] Tous checkpoints (M00, Phase I, Phase II, Final) ✅
 - [ ] Temps < 2 minutes
-- [ ] 13 fichiers HTML dataviz générés dans output/dataviz/
+- [ ] 13 graphiques Phase II + 12 visuels BC05 générés dans output/dataviz/
 - [ ] Pas de warnings importants
 
 ### Cohérence mission P13

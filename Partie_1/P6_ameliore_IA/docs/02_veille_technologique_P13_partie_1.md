@@ -5,13 +5,13 @@
 Identifier des outils et methodes utiles pour ameliorer le notebook Bottleneck, renforcer la qualite des donnees, securiser la publication du projet et rendre le livrable plus reproductible.
 
 Date de lancement : 2026-07-07.
-Derniere mise a jour : 2026-07-17.
+Derniere mise a jour : 2026-07-18.
 
 ## Storytelling cible (dashboard)
 
 - Detecter: controles qualite + anomalies critiques.
 - Expliquer: SHAP pour rendre l'alerte actionnable.
-- Prioriser: K-Means/kNN pour organiser le backlog d'investigation.
+- Prioriser: K-Means/kNN pour organiser le backlog d'investigation, sans declencher seuls une priorite critique.
 - Decider: exports produits pour arbitrage CODIR.
 
 ## Criteres de comparaison
@@ -32,7 +32,7 @@ Derniere mise a jour : 2026-07-17.
 | Controles Pandas | Verifier valeurs manquantes, doublons, types, cles de jointure, bornes de prix | Deja disponible dans le notebook, rapide, transparent | Demande de coder les controles manuellement | Bonne : pas de dependance supplementaire | Retenu en priorite |
 | Isolation Forest (scikit-learn) | Detection multivariee des anomalies produits (prix, marge, stock, CA/article) | Efficace sans labels, parametrable (contamination), interpretable avec pipeline clair | Sensible au choix des variables et a la standardisation | Bonne : deja dans stack sklearn | Retenu comme moteur principal de detection |
 | SHAP | Explicabilite locale/globale des alertes Isolation Forest | Rend les alertes actionnables pour le CODIR, visualisation claire des contributions | Cout de calcul selon volume, besoin de mise en forme pedagogique | Moyenne : dependance supplementaire | Retenu en priorite avec IF |
-| K-Means + kNN | Segmentation et score de rarete locale pour prioriser les investigations | Complete IF/SHAP pour ordonner le backlog | Ne remplace pas une detection primaire de risque | Bonne : sklearn natif | Retenu en second niveau |
+| K-Means + kNN | Segmentation et score de rarete locale pour prioriser les investigations | Complete IF/SHAP pour ordonner le backlog | Ne remplace pas une detection primaire de risque ; ne doit pas declencher seul `Critique` | Bonne : sklearn natif | Retenu en second niveau |
 | Great Expectations | Formaliser des tests de qualite data reutilisables | Cadre robuste, documentation claire, tests declaratifs | Mise en place plus lourde pour un notebook court | Moyenne : dependance et configuration ajoutees | A garder comme piste moyen terme |
 | Ruff + nbQA | Controler style Python et qualite du code notebook | Ameliore lisibilite et maintenance | Peut necessiter adaptation du notebook existant | Bonne : execution ponctuelle | Retenu si temps disponible |
 | ydata-profiling | Generer un rapport exploratoire automatique | Utile pour repérer rapidement distributions et valeurs atypiques | Rapport parfois lourd, moins cible metier | Moyenne a faible selon volume | Non prioritaire |
@@ -92,15 +92,22 @@ Derniere mise a jour : 2026-07-17.
 1. ✅ **Contrôles Pandas** : 18 points validation déjà implémentés
 2. ✅ **Isolation Forest** : Détection principale des anomalies business
 3. ✅ **SHAP** : Explication des alertes pour arbitrage CODIR
-4. ✅ **K-Means/kNN** : Priorisation complémentaire des investigations
+4. ✅ **K-Means/kNN** : Priorisation complémentaire des investigations, reservee au niveau `A surveiller`
 5. ✅ **Great Expectations** : Implémentation légère Phase I (5-6 expectations clés)
 6. ✅ **Ruff/nbQA** : Script optionnel pour qualité code
 7. ✅ **Aikido** : Workflow GitHub ajouté, activation finale via `AIKIDO_CLIENT_API_KEY`
 
 ### Arbitrage methodes pour la decision
 
-- **Court terme (decision immediate)** : Isolation Forest + SHAP en priorite.
-- **Moyen terme (priorisation fine)** : K-Means/kNN en complement, pas en remplacement.
+- **Court terme (decision immediate)** : Isolation Forest + SHAP + impact business pour `Critique`.
+- **Moyen terme (priorisation fine)** : K-Means/kNN en complement, pas en remplacement, pour alimenter `A surveiller`.
+
+### Regle BC05 retenue apres arbitrage
+
+- `critical_score` = IF + SHAP + impact business ; seuil `Critique >= 0.65`.
+- `surveillance_score` = IF + kNN + K-Means + SHAP + impact business ; seuil `A surveiller >= 0.45`.
+- kNN est un score non supervise de rarete locale : il repere des produits isoles, mais n'apprend pas une cible metier.
+- K-Means mesure l'appartenance et la distance au profil de cluster ; il sert a ordonner le backlog d'investigation.
 
 ### Justification implémentation Data Contracts
 - **Court terme** : Pragmatique via pandas assertions (pas d'API complexity GE v19+)

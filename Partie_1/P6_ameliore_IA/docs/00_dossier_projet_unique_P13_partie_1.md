@@ -9,6 +9,8 @@
 
 ## 2) Resume executif
 
+> **Source documentaire unique** : ce document est la reference complete de P13 Partie 1. Les fichiers `Partie_1/01_*.md` a `08_*.md` sont des syntheses courtes miroir ; en cas d'ecart, ce dossier unique et les fichiers detailles de `P6_ameliore_IA/docs/` font foi.
+
 Le projet consolide l analyse ERP/Web/Liaison pour produire des KPI utiles au CODIR et une priorisation actionnable des anomalies.
 
 Chaine metier retenue:
@@ -25,6 +27,12 @@ Socle de decision:
 Renfort de priorisation:
 
 - K-Means/kNN (en complement, pas en remplacement)
+
+Regle BC05 retenue:
+
+- `Critique` = score strict IF + SHAP + impact business (`critical_score >= 0.65`).
+- `A surveiller` = score large IF + kNN + K-Means + SHAP + impact business (`surveillance_score >= 0.45`).
+- kNN et K-Means ordonnent les investigations mais ne suffisent plus a declencher une urgence critique.
 
 ## 3) Contexte et besoin metier
 
@@ -55,7 +63,7 @@ Detection et explicabilite:
 
 Priorisation:
 
-- K-Means/kNN pour ordonner le backlog
+- K-Means/kNN pour ordonner le backlog de surveillance, sans passage critique automatique
 
 Gouvernance qualite:
 
@@ -89,6 +97,12 @@ References detaillees:
 - docs/06_synthese_finale_P13_partie_1.md
 - docs/05_matrice_indicateurs_P13_partie_1.md
 
+Resultats BC05 decisionnels:
+
+- Matrice complete: 825 produits = 1 critique, 172 a surveiller, 652 normaux.
+- Tableau dashboard filtre courant: 713 lignes alignees = 1 critique, 152 a surveiller, 560 normaux.
+- 36 alertes statistiques immediates, 25 alertes Isolation Forest, 4 clusters K-Means, 42 alertes kNN.
+
 ## 6) Etat reel notebook (verification locale)
 
 Notebook cible:
@@ -120,8 +134,18 @@ Livrables de pilotage:
 Livrables operationnels:
 
 - notebooks/bottleneck_analyse_ameliore_final.ipynb
-- output/dataviz/
+- output/dataviz/ (13 graphiques Phase II + 12 visuels BC05)
 - output/captures/
+
+Exports notebook synchronises:
+
+- `notebooks/output/bc05_matrice_decisionnelle.csv`
+- `notebooks/output/bc05_matrice_critique_surveillance.csv`
+- `notebooks/output/bc05_alertes_actionnables.csv`
+- `notebooks/output/bc05_anomalies_summary.csv`
+- `notebooks/output/bc05_iforest_alerts.csv`
+- Copies operationnelles dans `P6-Dashboard/data/` via `P6-Dashboard/sync_bc05_exports.py`.
+- Exports qualite sources brutes synchronisables vers `P6-Dashboard/data/quality_reporting/`.
 
 Livrables dashboard:
 

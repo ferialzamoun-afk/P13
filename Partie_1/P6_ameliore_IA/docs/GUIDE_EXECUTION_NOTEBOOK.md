@@ -108,6 +108,9 @@ P13/
 | **Après Phase II.3** | 3 prix invalides, 7 marges negatives | ✅ Anomalies détectées |
 | **Après Phase II.6** | Corrélations affichées | ✅ Relations confirmées |
 | **Après Phase II final** | Fichiers HTML générés | ✅ Dataviz créées |
+| **Après BC05 9.2bis** | Matrice decisionnelle stricte exportee | ✅ 1 critique, 172 a surveiller, 652 normaux |
+| **Après BC05 9.3b** | kNN rarete locale execute | ✅ 42 alertes de surveillance |
+| **Après BC05 9.3c** | Dataviz BC05 synchronisees | ✅ Visuels copies dans `output/dataviz/` |
 | **À la fin** | Temps exécution < 5 min | ✅ Performance OK |
 
 ---
@@ -138,6 +141,12 @@ P13/
 - **Prix ↔ Prix d'achat** : Relation forte confirmée (politique de prix cohérente)
 - **Stock ↔ Ventes** : Relation pour optimiser approvisionnement
 - **CA ↔ Marge** : Relation pour rentabilité
+
+### BC05 - Priorisation stricte
+- **Critique** : `critical_score >= 0.65`, calcule sans kNN/K-Means pour eviter qu'une rarete statistique devienne seule une urgence metier.
+- **A surveiller** : `surveillance_score >= 0.45`, incluant kNN et K-Means pour ordonner le backlog d'investigation.
+- **Exports a verifier** : `notebooks/output/bc05_matrice_decisionnelle.csv`, `notebooks/output/bc05_matrice_critique_surveillance.csv`, puis copies dans `P6-Dashboard/data/`.
+- **Quality exports dashboard** : les fichiers `output/quality_reporting/*.csv` peuvent etre synchronises vers `P6-Dashboard/data/quality_reporting/` pour alimenter l'onglet Reporting qualite.
 
 ---
 

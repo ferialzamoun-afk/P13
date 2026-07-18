@@ -8,8 +8,8 @@ Narration retenue pour la restitution dashboard: **detecter -> expliquer -> prio
 
 Arbitrage methodes:
 
-- Decision immediate: Isolation Forest + SHAP.
-- Priorisation avancee: K-Means/kNN en complement.
+- Decision immediate: Isolation Forest + SHAP + impact business (`critical_score`).
+- Priorisation avancee: K-Means/kNN en complement pour `A surveiller` (`surveillance_score`).
 
 Cette matrice sert de tableau de suivi pour relier chaque indicateur attendu a une preuve concrete, un statut et des metriques de validation.
 
@@ -17,7 +17,7 @@ Cette matrice sert de tableau de suivi pour relier chaque indicateur attendu a u
 
 - Detecter les anomalies prioritaires (qualite + score IF).
 - Expliquer les alertes (SHAP) pour faciliter la decision.
-- Prioriser les investigations (K-Means/kNN).
+- Prioriser les investigations (K-Means/kNN), sans declenchement critique automatique.
 - Decider et suivre via dashboard et GitHub Project.
 
 ## Legende des statuts
@@ -87,5 +87,5 @@ Cette matrice sert de tableau de suivi pour relier chaque indicateur attendu a u
 | 2 | Construire le tableau de veille comparant au moins 2 solutions. | Veille technologique | [x] |
 | 3 | Documenter 2 essais IA minimum sur le notebook P6. | Tracabilite IA | [x] |
 | 4 | Ajouter ou formaliser des controles qualite data et detection IF dans le notebook. | Notebook P6 ameliore | [x] |
-| 5 | Ajouter explicabilite SHAP et priorisation K-Means/kNN dans la restitution dashboard. | Notebook + documentation | [x] |
+| 5 | Ajouter explicabilite SHAP et priorisation K-Means/kNN dans la restitution dashboard, avec separation `critical_score` / `surveillance_score`. | Notebook + documentation | [x] |
 | 6 | Suivre les taches anomalies dans GitHub Project (T13-T18). | Plan projet | [~] |

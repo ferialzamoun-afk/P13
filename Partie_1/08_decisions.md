@@ -4,6 +4,8 @@
 
 Tracer les arbitrages principaux pris pendant l'amelioration du projet P6, en separant ce qui a ete retenu, ecarte ou reporte.
 
+> **Note de synchronisation documentaire** : cette page est une synthese courte. La reference complete et a jour est `P6_ameliore_IA/docs/00_dossier_projet_unique_P13_partie_1.md`.
+
 ## Decisions prises
 
 - Conserver l'existant et l'ameliorer progressivement plutot que refaire le notebook depuis zero.
@@ -12,16 +14,17 @@ Tracer les arbitrages principaux pris pendant l'amelioration du projet P6, en se
 - Formaliser la traçabilite IA dans un journal dedie.
 - Prioriser lisibilite, preuves et publication publique avant extension technique supplementaire.
 
-## Decisions BC05 - Seuils retenus a ce stade
+## Decisions BC05 - Regle retenue
 
-- Relever le seuil de marge faible a < 25% pour mieux couvrir le risque business.
-- Definir une criticite rupture sur stock nul avec demande >= 3 ventes.
-- Definir une criticite impact via la combinaison 3 alertes statistiques + CA >= 400 EUR.
-- Conserver Isolation Forest en priorite elevee avec audit metier systematique.
-- Exiger une restitution decisionnelle explicite en dashboard : motif, action, responsable, delai.
+- Separer `critical_score` et `surveillance_score` pour eviter que la rarete statistique declenche seule une urgence metier.
+- Definir `Critique` avec IF + SHAP + impact business (`critical_score >= 0.65`).
+- Definir `A surveiller` avec IF + kNN + K-Means + SHAP + impact business (`surveillance_score >= 0.45`).
+- Conserver kNN/K-Means comme signaux de second niveau pour ordonner les investigations.
+- Exiger une restitution decisionnelle explicite en dashboard : motif, scores, action, responsable, export CSV.
 
 ## Preuves detaillees
 
 - `P6_ameliore_IA/docs/03_journal_ia_P13_partie_1.md`
+- `P6_ameliore_IA/docs/00_dossier_projet_unique_P13_partie_1.md`
 - `P6_ameliore_IA/docs/02_veille_technologique_P13_partie_1.md`
 - `P6_ameliore_IA/docs/06_synthese_finale_P13_partie_1.md`
