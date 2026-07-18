@@ -41,14 +41,14 @@ Les resultats de veille doivent etre integres dans la narration : choix d'outils
 | 3 | P3 - Requetes SQL | **À AUDITER** | SQL, requêtes complexes, jointures | Nombre requêtes, complexité | [ ] |
 | 4 | P4 - Etude sante publique | **À AUDITER** | Collecte données, analyse, sourcing | Sources utilisées, KPI santé | [ ] |
 | 5 | P5 - Base immobiliere SQL | **À AUDITER** | SQL, PostgreSQL, normalisation | Taille DB, requêtes | [ ] |
-| 6 | P6 - Bottleneck ⭐ | Notebook P6 ameliore + Partie 1 docs + 9 captures | Python, Pandas, nettoyage, rapprochement, EDA, detection anomalies, pilotage IA, governance | CA 143.7k EUR, 825 produits, 714 web match, -68% cells, -76% temps, 26 prompts tracés, 18 controles qualité | [x] |
+| 6 | **P6 - Bottleneck ⭐ preuve technique phare** | Notebook P6 ameliore + dashboard + Partie 1 docs + captures | Python, Pandas, nettoyage, rapprochement, EDA, detection anomalies, BC05, dashboard, IA critique | CA 143.7k EUR, 825 produits, 714 web match, 18 controles qualite, 36 alertes BC05, matrice stricte 1 critique / 172 a surveiller / 652 normaux, 65 cellules | [x] |
 | 7 | P7 - Dashboard PowerBI | **À AUDITER** | Power BI, visualisation, KPI metier | Nombre dashboards, users | [ ] |
 | 8 | P8 - DBT project | **À AUDITER** | DBT, transformations, SQL, orchestration | Nombre models, tests | [ ] |
 | 9 | P9 - Analyses ventes librairies | **À AUDITER** | Pandas, EDA, segmentation, analyses | Volume données, insights | [ ] |
 | 10 | P10 - Eau potable DWFA | **À AUDITER** | Data warehouse, dimensionnels, SQL | Taille DW, modèles | [ ] |
 | 11 | P11 - Etude marche | **À AUDITER** | Statistiques, ACP, CAH, segmentation | Segments trouvés, variance | [ ] |
 | 12 | P12 - Faux billets | **À AUDITER** | ML, classification, modélisation | Accuracy, F1-score | [ ] |
-| 13 | P13 - Portfolio + IA ⭐ | Documentation P13 Partie 1 + Partie 2 + matrice | Pilotage projet, IA governance, documentation, veille technologique | 10 critères mission validés, 14 essais IA, 3-stage roadmap, 16 docs | [~] |
+| 13 | **P13 - Portfolio + IA ⭐ preuve de pilotage** | Documentation P13 Partie 1 + Mission 2 + matrice RNCP + GitHub Pages | Pilotage projet, IA governance, documentation, veille technologique, valorisation portfolio | GitHub Project, dossier projet unique, Mission 2, mapping RNCP, TNR GitHub Pages, correction vs evolution | [x] |
 | 14 | P14 - Stage retail | **À AUDITER** | Projet complet, Streamlit, Power BI | KPI retail, pipeline | [ ] |
 
 ## 3. Niveau de profondeur par projet
@@ -77,12 +77,12 @@ Les resultats de veille doivent etre integres dans la narration : choix d'outils
 
 | Competence RNCP37837 | Projets qui la prouvent | Preuve principale | Statut |
 |---|---|---|---|
-| **BC01 - Gérer une base de données** | P10 (DW eau), P5 (immo SQL) | Schémas DB, normalisation, SQL | [ ] |
-| **BC02 - Identifier et collecter données** | P2, P4, P9, P6, P14 | Imports, sources, acquisition | [ ] |
-| **BC03 - Visualiser et restituer** | P7 (PowerBI), P6, P14, P12 | Dashboards, KPI, captures | [x] |
-| **BC04 - Piloter projet data** | P13 (Partie 1), P6, P12, P14 | Planning, risques, backlog, KPI | [~] |
-| **BC05 - Analyser données & statistiques** | P11 (ACP/CAH), P12 (ML), P6, P2 | EDA, modélisation, segmentation | [ ] |
-| **Compétence transversale** | **Utiliser l'IA de manière critique** | P13 Partie 1 (journal IA + 26 prompts tracés) | [x] |
+| **BC01 - Gérer une base de données** | **P6 Bottleneck**, P10, P5 | Rapprochement ERP/Web/Liaison, 825 produits, 714 correspondances web | [x] |
+| **BC02 - Identifier et collecter données** | **P6 Bottleneck**, P2, P4, P9, P14 | Sources ERP/Web/Liaison, nettoyage, controles, EDA | [x] |
+| **BC03 - Visualiser et restituer** | **P6 Dashboard**, **P13 GitHub Pages**, P7, P14 | Dashboard Streamlit, 25 visuels, portfolio public, captures | [x] |
+| **BC04 - Piloter projet data** | **P13**, **P6**, P12, P14 | GitHub Project, dossier unique, veille, CDC, decisions, TNR | [x] |
+| **BC05 - Analyser données & statistiques** | **P6 BC05**, P11, P12, P2 | IF, SHAP, K-Means, kNN, Z-score/IQR, matrice stricte | [x] |
+| **Compétence transversale** | **P13 + P6** | IA critique : prompts, variantes, decisions humaines, limites, arbitrage `critical_score` / `surveillance_score` | [x] |
 
 ## 6. Actions immediates (PRIORITAIRES)
 
