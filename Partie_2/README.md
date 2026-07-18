@@ -12,6 +12,16 @@ L objectif est de transformer les livrables techniques en preuves claires, lisib
 - Clarifier les resultats metier et la valeur decisionnelle.
 - Publier une vitrine GitHub propre, avec liens publics verifies.
 
+## Mission 2 - Realisation du portfolio
+
+La Mission 2 formalise la narration des preuves de competences dans le portfolio.
+
+Chaque preuve doit suivre le fil : **contexte -> besoin metier -> demarche -> resultats -> impact**.
+
+Les resultats de veille sont integres dans les fiches et syntheses pour justifier les choix techniques : outils IA, methodes d'analyse, support de publication, niveau de documentation et limites.
+
+Document detaille : `Réaliser un portfolio/docs/06_mission_2_realisation_portfolio.md`.
+
 ---
 
 ## Positionnement avec le portfolio prive
@@ -50,6 +60,7 @@ Ajoute ici les autres liens publics a mesure de la publication des projets.
 Document de reference principal :
 
 - docs/05_matrice_portfolio_P13_partie_2.md
+- docs/06_mission_2_realisation_portfolio.md
 
 ---
 

@@ -21,12 +21,17 @@ Transformer votre ensemble de 14 projets (P1-P14) + gouvernance IA (P13 Partie 1
 | # | Document | Durée | Contenu | Pour qui ? |
 |---|----------|-------|---------|-----------|
 | **05** | [`05_matrice_portfolio_P13_partie_2.md`](docs/05_matrice_portfolio_P13_partie_2.md) | 30 min | Inventaire 14 projets + competences RNCP + priorités | Planification & audit |
+| **06** | [`06_mission_2_realisation_portfolio.md`](docs/06_mission_2_realisation_portfolio.md) | 20 min | Narration des preuves + veille + TNR + correction vs evolution | Soutenance |
 | **08** | [`08_guide_github_pages_portfolio.md`](docs/08_guide_github_pages_portfolio.md) | 2-3h | Guide complet GitHub Pages (activation, personnalisation, déploiement) | Setup technique |
 | **09** | [`09_guide_integration_partie_2.md`](docs/09_guide_integration_partie_2.md) | 1h | Workflow complet : phases, checklist, timeline | Orchestration globale |
 
 ---
 
 ## **🚀 Démarrage Rapide (15 min)**
+
+### **Étape 0 : Lire la mission 2** (3 min)
+
+Ouvrez [`06_mission_2_realisation_portfolio.md`](docs/06_mission_2_realisation_portfolio.md) pour cadrer la narration attendue : contexte, besoin metier, demarche, resultats, impact et integration de la veille.
 
 ### **Étape 1 : Lire la Matrice** (5 min)
 

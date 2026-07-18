@@ -6,6 +6,12 @@
 
 Cette matrice permet de suivre la preparation du portfolio, la qualite des preuves et l'avancement des 14 projets.
 
+## Mission 2 - Narration des preuves
+
+Le portfolio doit raconter chaque preuve selon le fil : **contexte -> besoin metier -> demarche -> resultats -> impact**.
+
+Les resultats de veille doivent etre integres dans la narration : choix d'outils, methodes d'analyse, criteres de selection, limites et pistes d'evolution.
+
 ## Legende des statuts
 
 - [ ] A faire
@@ -24,6 +30,7 @@ Cette matrice permet de suivre la preparation du portfolio, la qualite des preuv
 | Le portfolio respecte les bonnes pratiques GitHub. | README, structure claire, liens relatifs, fichiers inutiles retires, documentation d'execution. | Liens morts ; taille repo ; presence .gitignore si utile. | [ ] |
 | L'accessibilite et la lisibilite sont prises en compte. | Titres hierarchises, textes alternatifs pour images, contrastes/captures lisibles, langage clair. | Nombre d'images avec description ; niveau de structure Markdown. | [ ] |
 | La demarche d'amelioration continue est visible. | Issues GitHub, backlog, changelog, TODO, matrice de suivi, versionnement. | Nombre d'issues/taches ; nombre de commits utiles ; jalons. | [ ] |
+| La difference correction / evolution est explicite. | TNR GitHub Pages + suivi des corrections de liens/rendus/chiffres vs evolutions de contenu. | Nombre de corrections bloquantes ; nombre d'evolutions planifiees. | [~] |
 
 ## 2. Matrice de suivi des 14 projets
 
